@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id="product-title-tab">Products | Felix Fiberworks</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+  <script src="cart.js" defer></script>
+</head>
+<body>
+  <nav>
+    <div class="logo">Felix Fiberworks</div>
+    <div class="header-right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Categories.html">Categories</a></li>
+        <li><a href="Products.html">Products</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <a href="cart.html" class="nav-cart">🛒 <span id="cart-count">0</span></a>
+    <a href="CustomOrder.html" class="nav-btn">Custom Orders</a>
+  </nav>
+  <div class="product-page-container">
+    <div class="product-detail-layout">
+      <div class="product-images">
+        <img id="product-image" src="" alt="Product Image">
+      </div>
+      <div class="product-info">
+        <h1 id="product-title">Product Name</h1>
+        <div class="product-price" id="product-price"></div>
+        <div class="desc" id="product-desc"></div>
+        <form>
+          <label for="size">Size:</label>
+          <select id="size" name="size"></select>
+          <br>
+          <label for="color">Color:</label>
+          <select id="color" name="color"></select>
+          <br>
+          <label for="qty">Quantity:</label>
+          <input type="number" id="qty" value="1" min="1" max="10">
+        </form>
+        <div class="product-actions">
+          <button type="button" class="add-btn" id="add-to-cart-btn">Add to Cart</button>
+          <a href="shop.html" class="back-btn">← Back to Shop</a>
+        </div>
+        <div class="product-meta" id="product-meta"></div>
+      </div>
+    </div>
+  </div>
+   <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // --- Product Data (you can expand or edit as you wish) ---
+    const PRODUCTS = {
+      1: {
+        name: "Cozy Sweater",
+        price: 49.99,
+        desc: "Experience ultimate comfort and warmth with our handmade Cozy Sweater. Crafted with premium, ultra-soft yarn and designed for all-day coziness. Available in multiple sizes and colors for a perfect fit and style.",
+        image: "Images/Cozy1.jpg",
+        sizes: ["Small", "Medium", "Large"],
+        colors: ["Beige", "Lavender", "Rose Pink", "Sky Blue"],
+        meta: "Category: Knitwear<br>Tags: handmade, sweater, cozy, winter"
+      },
+      2: {
+        name: "Pastel Blanket",
+        price: 35.99,
+        desc: "A soft pastel blanket for snuggling on cold days. Handmade with love and pastel yarns.",
+        image: "Images/PastelBlanket.jpg",
+        sizes: ["One Size"],
+        colors: ["Pastel Mix"],
+        meta: "Category: Blankets<br>Tags: handmade, pastel, snuggle"
+      },
+      3: {
+        name: "Mini Yarn Tote",
+        price: 21.50,
+        desc: "A perfect little tote for your knitting or crochet projects on the go.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Natural", "Sky Blue", "Pink"],
+        meta: "Category: Bags<br>Tags: yarn, tote, portable"
+      },
+      4: {
+        name: "Summer Clutch",
+        price: 16.99,
+        desc: "A fun, lightweight clutch—perfect for summer outings.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Cream", "Yellow", "Blue"],
+        meta: "Category: Bags<br>Tags: summer, clutch, fun"
+      },
+      5: {
+        name: "Bear Amigurumi",
+        price: 14.00,
+        desc: "A cute hand-crocheted bear. Perfect for gifts and collectors.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["Small", "Medium"],
+        colors: ["Brown", "White"],
+        meta: "Category: Dolls<br>Tags: amigurumi, bear, cute"
+      },
+      6: {
+        name: "Bunny Doll",
+        price: 13.50,
+        desc: "Adorable bunny doll, soft and perfect for little hands.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["Small", "Medium"],
+        colors: ["White", "Pink"],
+        meta: "Category: Dolls<br>Tags: bunny, amigurumi, soft"
+      },
+      7: {
+        name: "Classic Beanie",
+        price: 12.00,
+        desc: "A timeless beanie for chilly days. Soft and stretchy.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["Small", "Medium", "Large"],
+        colors: ["Gray", "Black", "Navy"],
+        meta: "Category: Hats<br>Tags: beanie, classic, warm"
+      },
+      8: {
+        name: "Sunflower Beret",
+        price: 14.99,
+        desc: "Brighten your day with our sunflower-inspired crochet beret.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Yellow", "Brown"],
+        meta: "Category: Hats<br>Tags: beret, sunflower, fun"
+      },
+      9: {
+        name: "Chunky Scarf",
+        price: 22.00,
+        desc: "Chunky scarf for extra warmth and style.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Cream", "Gray"],
+        meta: "Category: Scarves<br>Tags: chunky, scarf, warm"
+      },
+      10: {
+        name: "Rainbow Wrap",
+        price: 24.95,
+        desc: "Bright and cheerful, this wrap adds color to any outfit.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Rainbow"],
+        meta: "Category: Scarves<br>Tags: rainbow, wrap, colorful"
+      },
+      11: {
+        name: "Flower Keychain",
+        price: 5.50,
+        desc: "Handmade crochet flower keychain for your bag or keys.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Pink", "Yellow", "Purple"],
+        meta: "Category: Accessories<br>Tags: flower, keychain, cute"
+      },
+      12: {
+        name: "Mini Sushi Keychain",
+        price: 6.00,
+        desc: "Adorable crochet sushi roll keychain for fun-loving foodies.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Green", "Pink", "White"],
+        meta: "Category: Accessories<br>Tags: sushi, food, keychain"
+      },
+      13: {
+        name: "Cat Plush",
+        price: 17.00,
+        desc: "Soft cat plush for cuddles and decor.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["Small", "Medium"],
+        colors: ["Gray", "White", "Orange"],
+        meta: "Category: Dolls<br>Tags: cat, plush, amigurumi"
+      },
+      14: {
+        name: "Tabby Cat Plush",
+        price: 18.00,
+        desc: "A huggable tabby cat plushie with stripes and character.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["Small", "Medium"],
+        colors: ["Orange", "Gray"],
+        meta: "Category: Dolls<br>Tags: tabby, cat, plush"
+      },
+      15: {
+        name: "Succulent Pot",
+        price: 10.99,
+        desc: "Crochet succulent in a pot, never needs water!",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Green", "Brown"],
+        meta: "Category: Decor<br>Tags: succulent, plant, crochet"
+      },
+      16: {
+        name: "Cactus Plush",
+        price: 11.49,
+        desc: "Fun, spiky-looking (but soft!) cactus plush.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Green"],
+        meta: "Category: Decor<br>Tags: cactus, plush, decor"
+      },
+      17: {
+        name: "Crochet Wallet",
+        price: 13.99,
+        desc: "Stylish and practical, this crochet wallet keeps coins and cards secure.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Blue", "Pink", "Gray"],
+        meta: "Category: Accessories<br>Tags: wallet, crochet, handmade"
+      },
+      18: {
+        name: "Coin Purse",
+        price: 8.50,
+        desc: "Tiny, handy coin purse with a sturdy clasp.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["One Size"],
+        colors: ["Red", "Blue", "Green"],
+        meta: "Category: Accessories<br>Tags: coin purse, small, cute"
+      },
+      19: {
+        name: "Makeup Pouch",
+        price: 9.99,
+        desc: "Organize your makeup with this soft, zippered pouch.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["Small", "Medium", "Large"],
+        colors: ["Pink", "Gray", "Black"],
+        meta: "Category: Accessories<br>Tags: makeup, pouch, travel"
+      },
+      20: {
+        name: "Travel Pouch",
+        price: 10.25,
+        desc: "Convenient and cute pouch for organizing your travel essentials.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80",
+        sizes: ["Small", "Medium", "Large"],
+        colors: ["Blue", "Pink", "Yellow"],
+        meta: "Category: Accessories<br>Tags: travel, pouch, organizer"
+      }
+    };
+
+    function getProductId() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
+    }
+
+    function renderProduct() {
+      const id = getProductId();
+      const product = PRODUCTS[id];
+      if (!product) {
+        document.getElementById('product-title').textContent = "Product Not Found";
+        document.getElementById('product-title-tab').textContent = "Product Not Found | Felix Fiberworks";
+        document.getElementById('product-image').src = "https://via.placeholder.com/300x300?text=Product+Not+Found";
+        document.getElementById('product-image').alt = "Product Not Found";
+        document.getElementById('product-price').textContent = "";
+        document.getElementById('product-desc').textContent = "Sorry, this product does not exist or has not been selected. Please return to the shop and try again.";
+        document.getElementById('product-meta').innerHTML = "";
+        document.getElementById('size').innerHTML = "";
+        document.getElementById('color').innerHTML = "";
+        document.getElementById('add-to-cart-btn').disabled = true;
+        document.getElementById('add-to-cart-btn').textContent = "Unavailable";
+        return;
+      }
+      document.getElementById('product-title').textContent = product.name;
+      document.getElementById('product-title-tab').textContent = product.name + " | Felix Fiberworks";
+      document.getElementById('product-image').src = product.image;
+      document.getElementById('product-image').alt = product.name;
+      document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById('product-desc').textContent = product.desc;
+      document.getElementById('product-meta').innerHTML = product.meta;
+
+      // Populate size and color
+      const sizeSel = document.getElementById('size');
+      sizeSel.innerHTML = "";
+      (product.sizes || []).forEach(sz => {
+        const opt = document.createElement('option');
+        opt.textContent = sz;
+        sizeSel.appendChild(opt);
+      });
+
+      const colorSel = document.getElementById('color');
+      colorSel.innerHTML = "";
+      (product.colors || []).forEach(c => {
+        const opt = document.createElement('option');
+        opt.textContent = c;
+        colorSel.appendChild(opt);
+      });
+
+      // Enable Add to Cart button
+      document.getElementById('add-to-cart-btn').disabled = false;
+      document.getElementById('add-to-cart-btn').textContent = "Add to Cart";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderProduct();
+
+      document.getElementById('add-to-cart-btn').onclick = function() {
+        const id = getProductId();
+        if (!PRODUCTS[id]) return; // do nothing if not found
+        const qty = parseInt(document.getElementById('qty').value) || 1;
+        let cart = {};
+        try {
+          cart = JSON.parse(localStorage.getItem('cart')) || {};
+        } catch(e) { cart = {}; }
+        if (!cart[id]) {
+          cart[id] = {
+            id,
+            name: PRODUCTS[id].name,
+            price: PRODUCTS[id].price,
+            img: PRODUCTS[id].image,
+            qty: 0
+          };
+        }
+        cart[id].qty += qty;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Added to cart!');
+      };
+    });
+  </script>
+  <style>
+    .product-page-container { max-width: 1000px; margin: 40px auto; padding: 0 2vw; }
+    .product-detail-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      margin-top: 40px;
+      align-items: flex-start;
+    }
+    .product-images {
+      flex: 1 1 330px;
+      max-width: 390px;
+      background: #faf7f3;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px 20px 15px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .product-images img {
+      width: 90%;
+      max-width: 330px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.04);
+    }
+    .product-info {
+      flex: 2 1 320px;
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .product-info h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      color: #b77c46;
+      margin-bottom: 8px;
+    }
+    .product-info .product-price {
+      font-size: 1.4rem;
+      color: #b77c46;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .product-info .desc {
+      color: #444;
+      font-size: 1.07rem;
+      margin-bottom: 16px;
+    }
+    .product-info label { font-weight: 500; color: #555; }
+    .product-info select, .product-info input[type=number] {
+      margin: 6px 0 18px 0;
+      font-size: 1.05rem;
+      padding: 4px 7px;
+      border-radius: 3px;
+      border: 1px solid #ddd;
+      min-width: 80px;
+    }
+    .product-actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .product-actions .add-btn {
+      background: #b77c46;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 9px 25px;
+      font-size: 1.08rem;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+    .product-actions .add-btn:hover { background: #a5642a; }
+    .product-actions .back-btn {
+      background: #eee;
+      color: #555;
+      border: none;
+      border-radius: 4px;
+      padding: 9px 18px;
+      font-size: .97rem;
+      text-decoration: none;
+      margin-left: 10px;
+      font-family: 'Montserrat', sans-serif;
+      transition: background 0.2s;
+    }
+    .product-actions .back-btn:hover { background: #e0d6c7; color: #b77c46; }
+    .product-meta {
+      margin-top: 30px;
+      color: #888;
+      font-size: .97rem;
+    }
+    @media (max-width: 900px) {
+      .product-detail-layout { flex-direction: column; gap: 30px; }
+      .product-images, .product-info { max-width: 100%; }
+    }
+  </style>
+</body>
+</html>

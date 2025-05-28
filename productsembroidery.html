@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Responsive and SEO Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore detailed views and affordable prices on individual embroidery products at Felix Fiberworks.">
+  <title id="product-title-tab">Embroidery & Stitching | Felix Fiberworks</title>
+  <link rel="stylesheet" href="categories.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+  <script src="cart.js" defer></script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav aria-label="Main navigation">
+    <div class="logo">Felix Fiberworks</div>
+    <div class="header-right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Categories.html">Categories</a></li>
+        <li><a href="Shop.html">Products</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <a href="cart.html" class="nav-cart" aria-label="View cart">🛒 <span id="cart-count">0</span></a>
+    <a href="CustomOrder.html" class="nav-btn">Custom Orders</a>
+  </nav>
+  <!-- Product Detail Page Layout -->
+  <div class="product-page-container">
+    <div class="product-detail-layout">
+      <div class="product-images">
+        <img id="product-image" src="" alt="Product Image">
+      </div>
+      <div class="product-info">
+        <h1 id="product-title">Product Name</h1>
+        <div class="product-price" id="product-price"></div>
+        <div class="desc" id="product-desc"></div>
+        <form>
+          <label for="size">Size:</label>
+          <select id="size" name="size"></select>
+          <br>
+          <label for="color">Color:</label>
+          <select id="color" name="color"></select>
+          <br>
+          <label for="qty">Quantity:</label>
+          <input type="number" id="qty" value="1" min="1" max="10">
+        </form>
+        <div class="product-actions">
+          <button type="button" class="add-btn" id="add-to-cart-btn">Add to Cart</button>
+          <a href="embroidery.html" class="back-btn">← Back to Embroidery & Stitching</a>
+        </div>
+        <div class="product-meta" id="product-meta"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Back to Top Button: floating, mobile-friendly, accessible -->
+  <div class="back-to-top-wrapper">
+    <button id="backToTop" aria-label="Back to top">
+      <span class="back-to-top-arrow" aria-hidden="true">↑</span>
+    </button>
+    <span class="back-to-top-label">Back to Top</span>
+  </div>
+  <script>
+    // --- AFFORDABLE EMBROIDERY PRODUCTS DATA ---
+    const EMBROIDERY_PRODUCTS = {
+      1: {
+        name: "Floral Embroidery Hoop",
+        price: 9.99,
+        desc: "Hand-stitched flowers on fabric, framed in a 6\" hoop. Perfect wall decor.",
+        image: "Images/Embroidery1.jpg",
+        sizes: ["6\" Hoop"],
+        colors: ["Multicolor", "Pastel"],
+        meta: "Category: Hoops<br>Tags: floral, embroidery, wall art"
+      },
+      2: {
+        name: "Mini Embroidery Hoop Keychain",
+        price: 3.50,
+        desc: "Petite hoop with delicate hand embroidery, ready for your keys or bag.",
+        image: "Images/embroidery-mini-hoop.jpg",
+        sizes: ["Mini"],
+        colors: ["Random"],
+        meta: "Category: Accessories<br>Tags: mini, keychain, embroidery"
+      },
+      3: {
+        name: "Landscape Embroidery Art",
+        price: 12.99,
+        desc: "Scenic stitched landscape in a circular hoop, adds calm to any space.",
+        image: "Images/embroidery-landscape.jpg",
+        sizes: ["8\" Hoop"],
+        colors: ["Green", "Blue", "Earth Tones"],
+        meta: "Category: Hoops<br>Tags: landscape, art"
+      },
+      4: {
+        name: "Custom Monogram Patch",
+        price: 4.99,
+        desc: "Personalized hand-embroidered patch for jackets, bags, or gifts.",
+        image: "Images/embroidery-monogram.jpg",
+        sizes: ["Patch"],
+        colors: ["Custom"],
+        meta: "Category: Patches<br>Tags: monogram, custom, embroidery"
+      },
+      5: {
+        name: "Wildflower Bouquet Hoop",
+        price: 7.75,
+        desc: "Colorful wildflowers stitched onto natural linen, 5\" hoop.",
+        image: "Images/embroidery-wildflower.jpg",
+        sizes: ["5\" Hoop"],
+        colors: ["Multicolor"],
+        meta: "Category: Hoops<br>Tags: wildflower, bouquet"
+      },
+      6: {
+        name: "Cat Lovers Embroidery",
+        price: 6.99,
+        desc: "Adorable stitched cats, perfect gift for feline fans.",
+        image: "Images/embroidery-cats.jpg",
+        sizes: ["6\" Hoop"],
+        colors: ["Gray", "Orange", "Black"],
+        meta: "Category: Hoops<br>Tags: cat, embroidery"
+      },
+      7: {
+        name: "Leafy Green Patch",
+        price: 2.99,
+        desc: "Hand-embroidered leaf patch, iron-on or sew-on for easy style.",
+        image: "Images/embroidery-leaf.webp",
+        sizes: ["Patch"],
+        colors: ["Green"],
+        meta: "Category: Patches<br>Tags: leaf, green"
+      },
+      8: {
+        name: "Inspirational Quote Hoop",
+        price: 6.50,
+        desc: "Choose your favorite saying, beautifully stitched in a 4\" hoop.",
+        image: "Images/embroidery-quote.jpg",
+        sizes: ["4\" Hoop"],
+        colors: ["Custom"],
+        meta: "Category: Hoops<br>Tags: quote, inspirational"
+      },
+      9: {
+        name: "Mushroom Forest Mini Art",
+        price: 4.99,
+        desc: "Tiny hoop featuring hand-stitched mushrooms and forest floor details.",
+        image: "Images/embroidery-mushroom.jpg",
+        sizes: ["Mini Hoop"],
+        colors: ["Brown", "Red", "Green"],
+        meta: "Category: Hoops<br>Tags: mushroom, mini"
+      },
+      10: {
+        name: "Fox Embroidery Patch",
+        price: 3.50,
+        desc: "Cute fox, hand-stitched as an iron-on patch for clothing or accessories.",
+        image: "Images/embroidery-fox.jpg",
+        sizes: ["Patch"],
+        colors: ["Orange", "White"],
+        meta: "Category: Patches<br>Tags: fox, patch"
+      },
+      11: {
+        name: "Beginner Sampler Hoop",
+        price: 7.99,
+        desc: "Learn embroidery basics with this cheerful sampler design, 6\" hoop.",
+        image: "Images/embroidery-sampler.jpg",
+        sizes: ["6\" Hoop"],
+        colors: ["Multicolor"],
+        meta: "Category: Hoops<br>Tags: sampler, beginner"
+      },
+      12: {
+        name: "Songbird Wall Hanging",
+        price: 6.75,
+        desc: "Charming songbird stitched on linen, ready to hang.",
+        image: "Images/embroidery-bird.jpg",
+        sizes: ["7\" Hoop"],
+        colors: ["Blue", "Yellow"],
+        meta: "Category: Wall Art<br>Tags: bird, songbird"
+      },
+      13: {
+        name: "Rainbow Pocket Patch",
+        price: 2.99,
+        desc: "Bright rainbow, hand-stitched and perfect for pockets or bags.",
+        image: "Images/embroidery-rainbow.jpg",
+        sizes: ["Patch"],
+        colors: ["Rainbow"],
+        meta: "Category: Patches<br>Tags: rainbow, patch"
+      },
+      14: {
+        name: "Cactus Embroidery Hoop",
+        price: 5.75,
+        desc: "Fun cactus stitched in a bright pot, 4\" hoop for a modern touch.",
+        image: "Images/embroidery-cactus.jpg",
+        sizes: ["4\" Hoop"],
+        colors: ["Green", "Yellow"],
+        meta: "Category: Hoops<br>Tags: cactus, modern"
+      },
+      15: {
+        name: "Butterfly Brooch",
+        price: 4.99,
+        desc: "Wearable art! Hand-stitched butterfly brooch, lightweight and colorful.",
+        image: "Images/embroidery-butterfly.jpg",
+        sizes: ["Brooch"],
+        colors: ["Blue", "Yellow", "Pink"],
+        meta: "Category: Accessories<br>Tags: butterfly, brooch"
+      },
+      16: {
+        name: "Moon & Stars Mini Hoop",
+        price: 6.25,
+        desc: "Celestial scene stitched in a mini hoop, dreamy decor for your room.",
+        image: "Images/embroidery-moon.jpg",
+        sizes: ["Mini Hoop"],
+        colors: ["Navy", "Yellow", "White"],
+        meta: "Category: Hoops<br>Tags: moon, stars"
+      },
+      17: {
+        name: "Avocado Iron-On Patch",
+        price: 2.99,
+        desc: "Trendy hand-embroidered avocado, easy to add to jackets or totes.",
+        image: "Images/embroidery-avocado.jpg",
+        sizes: ["Patch"],
+        colors: ["Green"],
+        meta: "Category: Patches<br>Tags: avocado, patch"
+      },
+      18: {
+        name: "Fox in the Woods Hoop",
+        price: 7.99,
+        desc: "Charming woodland fox stitched in a 5\" hoop, cozy and cute.",
+        image: "Images/embroidery-fox-hoop.jpg",
+        sizes: ["5\" Hoop"],
+        colors: ["Orange", "Green"],
+        meta: "Category: Hoops<br>Tags: fox, woodland"
+      },
+      19: {
+        name: "Succulent Garden Patch",
+        price: 3.50,
+        desc: "Hand-embroidered succulents, iron or sew onto your favorite gear.",
+        image: "Images/embroidery-succulent.jpg",
+        sizes: ["Patch"],
+        colors: ["Green"],
+        meta: "Category: Patches<br>Tags: succulent, patch"
+      },
+      20: {
+        name: "Cat & Flowers Hoop",
+        price: 8.50,
+        desc: "Sweet cat surrounded by stitched flowers, framed in a 6\" hoop.",
+        image: "Images/embroidery-catflower.jpg",
+        sizes: ["6\" Hoop"],
+        colors: ["Custom"],
+        meta: "Category: Hoops<br>Tags: cat, flowers"
+      }
+    };
+
+    // Render product details based on id in URL
+    function getProductId() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
+    }
+
+    function renderProduct() {
+      const id = getProductId();
+      const product = EMBROIDERY_PRODUCTS[id];
+      if (!product) {
+        document.getElementById('product-title').textContent = "Product Not Found";
+        document.getElementById('product-title-tab').textContent = "Product Not Found | Felix Fiberworks";
+        document.getElementById('product-image').src = "https://via.placeholder.com/300x300?text=Product+Not+Found";
+        document.getElementById('product-image').alt = "Product Not Found";
+        document.getElementById('product-price').textContent = "";
+        document.getElementById('product-desc').textContent = "Sorry, this product does not exist or has not been selected. Please return to the shop and try again.";
+        document.getElementById('product-meta').innerHTML = "";
+        document.getElementById('size').innerHTML = "";
+        document.getElementById('color').innerHTML = "";
+        document.getElementById('add-to-cart-btn').disabled = true;
+        document.getElementById('add-to-cart-btn').textContent = "Unavailable";
+        return;
+      }
+      document.getElementById('product-title').textContent = product.name;
+      document.getElementById('product-title-tab').textContent = product.name + " | Felix Fiberworks";
+      document.getElementById('product-image').src = product.image;
+      document.getElementById('product-image').alt = product.name;
+      document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById('product-desc').textContent = product.desc;
+      document.getElementById('product-meta').innerHTML = product.meta;
+
+      // Populate size and color options
+      const sizeSel = document.getElementById('size');
+      sizeSel.innerHTML = "";
+      (product.sizes || []).forEach(sz => {
+        const opt = document.createElement('option');
+        opt.textContent = sz;
+        sizeSel.appendChild(opt);
+      });
+
+      const colorSel = document.getElementById('color');
+      colorSel.innerHTML = "";
+      (product.colors || []).forEach(c => {
+        const opt = document.createElement('option');
+        opt.textContent = c;
+        colorSel.appendChild(opt);
+      });
+
+      // Enable Add to Cart button
+      document.getElementById('add-to-cart-btn').disabled = false;
+      document.getElementById('add-to-cart-btn').textContent = "Add to Cart";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Render product details
+      renderProduct();
+
+      // Add to Cart functionality
+      document.getElementById('add-to-cart-btn').onclick = function() {
+        const id = getProductId();
+        if (!EMBROIDERY_PRODUCTS[id]) return;
+        const qty = parseInt(document.getElementById('qty').value) || 1;
+        let cart = {};
+        try {
+          cart = JSON.parse(localStorage.getItem('cart')) || {};
+        } catch(e) { cart = {}; }
+        if (!cart[id]) {
+          cart[id] = {
+            id,
+            name: EMBROIDERY_PRODUCTS[id].name,
+            price: EMBROIDERY_PRODUCTS[id].price,
+            img: EMBROIDERY_PRODUCTS[id].image,
+            qty: 0
+          };
+        }
+        cart[id].qty += qty;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Added to cart!');
+      };
+
+      // Back to Top Button Functionality
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 250) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+      });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+  <style>
+    /* --- Back to Top Button: fixed, with label below, responsive --- */
+    .back-to-top-wrapper {
+        position: fixed;
+        right: 18px;
+        bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 199;
+        pointer-events: none;
+    }
+    #backToTop {
+        width: 48px;
+        height: 48px;
+        background: var(--secondary, #bdb2ff);
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: bold;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(.4,0,.2,1), background 0.2s, color 0.2s, transform 0.3s cubic-bezier(.4,0,.2,1);
+        transform: translateY(30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+    .back-to-top-arrow {
+        color: #000;
+        font-size: 1.6em;
+        line-height: 1;
+    }
+    .back-to-top-label {
+        margin-top: 2px;
+        font-size: 0.93rem;
+        color: #000;
+        font-weight: 500;
+        background: rgba(255,255,255,0.88);
+        border-radius: 6px;
+        padding: 1px 8px;
+        user-select: none;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    #backToTop.visible + .back-to-top-label {
+        opacity: 1;
+    }
+    #backToTop:focus .back-to-top-label,
+    #backToTop:hover .back-to-top-label {
+        color: var(--primary, #e2c290);
+    }
+    #backToTop:focus, #backToTop:hover {
+        background: var(--primary, #e2c290);
+        color: #000;
+        outline: none;
+        box-shadow: 0 6px 16px #e2c29044;
+    }
+    @media (max-width: 600px) {
+        .back-to-top-wrapper {
+            right: 8px;
+            bottom: 18px;
+        }
+        #backToTop {
+            width: 36px;
+            height: 36px;
+            font-size: 1.2rem;
+        }
+        .back-to-top-label {
+            font-size: 0.8rem;
+            padding: 0 5px;
+        }
+    }
+  </style>
+</body>
+</html>

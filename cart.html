@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cart | Felix Fiberworks</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cart.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+  <script src="cart.js" defer></script>
+  <script src="cart-display.js" defer></script>
+  <script src="discount.js" defer></script>
+</head>
+<body>
+  <nav>
+    <div class="logo">Felix Fiberworks</div>
+    <div class="header-right">
+      <!-- (If you need other header actions, add here) -->
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Categories.html">Categories</a></li>
+      <li><a href="Shop.html">Products</a></li>
+      <li><a href="Gallery.html">Gallery</a></li>
+    </ul>
+    </div>
+      <a href="cart.html" class="nav-cart" >🛒 <span id="cart-count">0</span></a>
+      <a href="CustomOrder.html" class="nav-btn">Custom Orders</a>
+  </nav>
+  <main>
+    <h1 class="cart-title">Your Shopping Cart</h1>
+    <div class="cart-layout">
+      <section class="cart-table-section">
+        <table class="cart-table" id="cart-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th> </th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cart-table-body">
+            <!-- Example cart row for demonstration -->
+            <tr>
+              <td>Product Img</td>
+              <td>Product Name</td>
+              <td>$12.00</td>
+              <td>
+                <div class="cart-qty-row">
+                  <button class="qty-btn">-</button>
+                  <span class="cart-qty">1</span>
+                  <button class="qty-btn">+</button>
+                </div>
+              </td>
+              <td>$12.00</td>
+              <td><button class="remove-btn">×</button></td>
+            </tr>
+            <!-- End example row. Your JS will dynamically insert similar rows. -->
+          </tbody>
+        </table>
+        <div id="cart-empty-msg" class="cart-empty-msg"></div>
+      </section>
+      <aside class="cart-summary-section">
+        <div class="cart-summary-card">
+          <h2>Order Summary</h2>
+          <div class="summary-row"><span>Subtotal:</span><span id="summary-subtotal">$0.00</span></div>
+          <div class="summary-row discount-row" id="summary-discount-row" style="display:none;">
+            <span id="summary-discount-label"></span><span id="summary-discount">-$0.00</span>
+          </div>
+          <div class="summary-row discount-row" id="summary-voucher-row" style="display:none;">
+            <span id="summary-voucher-label"></span><span id="summary-voucher">-$0.00</span>
+          </div>
+          <form id="voucher-form" class="voucher-form">
+            <input type="text" id="voucher-code" placeholder="Voucher code" autocomplete="off">
+            <button type="submit" class="voucher-btn">Apply</button>
+            <span class="voucher-message" id="voucher-message"></span>
+          </form>
+          <div class="summary-row grand-total-row">
+            <span><strong>Grand Total:</strong></span>
+            <span id="summary-grandtotal" class="grandtotal-value">$0.00</span>
+          </div>
+          <button class="pay-btn" id="pay-btn">Proceed to Payment</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+    <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

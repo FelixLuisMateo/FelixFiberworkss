@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- SEO: Added meta description -->
+    <meta name="description" content="Felix Fiberworks - Cozy crochet, handmade flowers, whimsical yarn art, and more. Shop our collection of handmade crafts designed to bring warmth and joy to your home.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page | Felix Fiberworks</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main navigation"><!-- Accessibility: added aria-label -->
+            <div class="logo">Felix Fiberworks</div>
+            <div class="header-right"></div>
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="Shop.html">Products</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+            <a href="cart.html" class="nav-cart" aria-label="View cart">🛒 <span id="cart-count">0</span></a>
+            <a href="CustomOrder.html" class="nav-btn">Custom Order</a>
+        </nav>
+        <section class="hero handmade-hero-bg">
+            <div class="hero-decor"></div>
+            <div class="hero-content">
+                <h1>
+                    <span class="hero-icon" aria-hidden="true">🧶</span>
+                    Crafting Whimsy & Warmth by Hand
+                </h1>
+                <p>Discover cozy crochet, delicate handmade flowers, and whimsical yarn art—all lovingly crafted to bring joy, color and comfort to your home.</p>
+                <a href="#shop" class="btn-primary">Shop the Collection</a>
+            </div>
+            <div class="hero-extras">
+                <div class="hero-badge">Handmade Crochet</div>
+                <div class="hero-badge">Floral Crafts</div>
+                <div class="hero-badge">Yarn & Thread Art</div>
+            </div>
+            <svg class="hero-squiggle" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 40 Q60 10 120 40 T195 20" stroke="#ffe066" stroke-width="6" fill="none" opacity="0.55"/>
+                <circle cx="180" cy="28" r="10" fill="#bdb2ff" fill-opacity="0.45"/>
+            </svg>
+        </section>
+    </header>
+    <main>
+        <svg class="main-bg-svg" viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bg1" x1="0" y1="0" x2="1440" y2="420" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#bdb2ff"/>
+                    <stop offset="1" stop-color="#ffe066"/>
+                </linearGradient>
+                <radialGradient id="bg2" cx="70%" cy="40%" r="60%" fx="80%" fy="20%" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#e2c290" stop-opacity="0.65"/>
+                    <stop offset="1" stop-color="#fffdfa" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <path fill="url(#bg1)" fill-opacity="0.33" d="M0,220 Q400,100 900,220 T1440,220 L1440,400 L0,400 Z"/>
+            <ellipse cx="1100" cy="70" rx="320" ry="90" fill="url(#bg2)" fill-opacity="0.88"/>
+            <path d="M200 150 Q350 210 500 110 T900 180" stroke="#ffe066" stroke-width="10" fill="none" opacity="0.64"/>
+            <circle cx="70" cy="120" r="38" fill="#e2c290" fill-opacity="0.58"/>
+        </svg>
+
+        <!-- Categories Section -->
+        <section class="categories alt-bg" id="categories">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card popout">
+                    <a href="crochet.html">
+                    <!-- Accessibility: Improved alt text -->
+                    <img src="Images/CrochetCreations.jpg" alt="Crochet Creations - Yarn Crafts">
+                    <h3><span class="cat-icon" aria-hidden="true">🧶</span> Crochet Creations</h3>
+                    </a>
+                </div>
+                <div class="category-card popout">
+                    <a href="flowers.html">
+                    <img src="Images/FlowerCreations.jpg" alt="Handmade Flowers - Felt and Fabric Flowers">
+                    <h3><span class="cat-icon" aria-hidden="true">🌸</span> Handmade Flowers</h3>
+                    </a>
+                </div>
+                <div class="category-card popout">
+                    <a href="embroidery.html">
+                    <img src="Images/Embroidery1.webp" alt="Embroidery & Stitching - Wall Art">
+                    <h3><span class="cat-icon" aria-hidden="true">🪡</span> Embroidery & Stitching</h3>
+                    </a>
+                </div>
+                <div class="category-card popout">
+                    <a href="yarn.html">
+                    <img src="Images/yarn1.avif" alt="Macramé & Yarn Art - Wall Hangings">
+                    <h3><span class="cat-icon" aria-hidden="true">🧵</span> Yarn Art</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#e2c290" stroke-width="3" fill="none" opacity="0.5"/>
+        </svg>
+
+        <!-- Featured Products -->
+        <section class="features alt-bg2" id="shop">
+            <h2 class="section-title">Featured Creations</h2>
+            <div class="product-grid">
+                <!-- Featured 1: Cozy Crochet Cat Plushie -->
+                <div class="product-card product-pop"
+                    data-title="Cozy Crochet Cat Plushie"
+                    data-price="22"
+                    data-img="Images/Cozy1.jpg">
+                    <img src="Images/Cozy1.jpg" alt="Cozy Crochet Cat Plushie, hand-crocheted, soft yarn" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Cozy Crochet Cat Plushie</h3>
+                        <p>Hand-crocheted with ultra-soft yarn, this plushie brings a smile and warmth to any space.</p>
+                        <span class="price">$22</span>
+                        <a href="productscrochet.html?id=1" class="buy-now-btn btn-secondary">Buy Now</a>
+                    </div>
+                </div>
+                <!-- Featured 2: Handmade Felt Flower Bouquet -->
+                <div class="product-card product-pop"
+                    data-title="Handmade Felt Flower Bouquet"
+                    data-price="3.95"
+                    data-img="Images/flower-sunflower.jpg">
+                    <img src="Images/flower-sunflower.jpg" alt="Sunny Sunflower Stem, handmade" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Sunny Sunflower Stem</h3>
+                        <p>Brighten any room with a cheerful, handmade sunflower that never wilts.</p>
+                        <span class="price">$3.95</span>
+                        <a href="productsflowers.html?id=2" class="buy-now-btn btn-secondary">Buy Now</a>
+                    </div>
+                </div>
+                <!-- Featured 3: Modern Embroidery Hoop Art -->
+                <div class="product-card product-pop"
+                    data-title="Modern Embroidery Hoop Art"
+                    data-price="42"
+                    data-img="Images/Embroidery1.jpg">
+                    <img src="Images/Embroidery1.jpg" alt="Modern Embroidery Hoop Art, wall decor" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Floral Embroidery Hoop</h3>
+                        <p>Hand-stitched flowers on fabric, framed in a 6" hoop. Perfect wall decor.</p>
+                        <span class="price">$9.99</span>
+                        <a href="productembroidery.html?id=1" class="buy-now-btn btn-secondary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-cta">
+                <a href="Shop.html" class="btn-primary large">Browse Full Collection</a>
+            </div>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#bdb2ff" stroke-width="2.5" fill="none" opacity="0.32"/>
+        </svg>
+
+        <!-- Designer Profile / Artisan Spotlight -->
+        <section class="artisan-spotlight designer-profile alt-bg" id="designer">
+            <div class="artisan-content designer-flex">
+                <!-- Accessibility: Improved alt text -->
+                <img src="Images/Formal Picture.jpg" alt="Felix Luis Mateo, web designer portrait">
+                <div>
+                    <h2>Meet Your Designer</h2>
+                    <p>
+                        <span class="designer-icon" aria-hidden="true">🧑‍🎨</span>
+                        Felix Luis Mateo designs digital spaces where art and interaction meet.
+                        <a href="Profile.html" class="inline-link">See my portfolio &rarr;</a>
+                    </p>
+                    <h2>Artisan of the Month</h2>
+                    <p><strong>Evelyn Brooks</strong>, a crochet artist, weaves magic into every plushie and wall hanging. Explore her exclusive spring collection!</p>
+                </div>
+            </div>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#e2c290" stroke-width="3" fill="none" opacity="0.32"/>
+        </svg>
+
+        <!-- About & Mission/Vision -->
+        <section class="about-section alt-bg2" id="about">
+            <div class="about-content">
+                <div>
+                    <h2>Our Story <span class="about-icon" aria-hidden="true">🌸</span></h2>
+                    <p>
+                    Our cozy studio overflows with color and creativity—baskets of yarn, shelves of plushies, and cheerful bouquets of handmade flowers. Each piece is crafted by hand, stitch by stitch, bringing warmth and joy to every home.
+                    </p>
+                    <ul class="studio-stats">
+                        <li><span aria-hidden="true">🧶</span> 7+ Years Crafting</li>
+                        <li><span aria-hidden="true">🌼</span> 1000+ Handmade Blooms</li>
+                        <li><span aria-hidden="true">🪡</span> Modern & Traditional Stitching</li>
+                    </ul>
+                    <a href="AboutUs.html" class="btn-secondary">Read More</a>
+                </div>
+                <!-- Accessibility: Improved alt text -->
+                <img src="Images/Handmade craft studio.jpg" alt="Handmade craft studio with yarn, plushies, and flowers">
+            </div>
+            <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#bdb2ff" stroke-width="2.5" fill="none" opacity="0.32"/>
+            </svg>
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Our Mission <span class="mission-icon" aria-hidden="true">🧵</span></h3>
+                    <p>Bring delight and comfort through the magic of handmade crafts.</p>
+                </div>
+                <div class="vision">
+                    <h3>Our Vision <span class="vision-icon" aria-hidden="true">🌍</span></h3>
+                    <p>To inspire a new generation of makers and spread joy, one creation at a time.</p>
+                </div>
+            </div>
+            <a href="MissionAndVision.html" class="inline-link mission-link">Learn more about our values &rarr;</a>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#e2c290" stroke-width="3" fill="none" opacity="0.4"/>
+        </svg>
+
+        <!-- Gallery / Portfolio Preview (COOL MOSAIC) -->
+        <section class="gallery-section alt-bg" id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-mosaic">
+                <div class="gallery-mosaic-item tall"><img src="Images/CrochetPlushie.jpg" alt="Assorted crochet plushies in various colors"></div>
+                <div class="gallery-mosaic-item wide"><img src="Images/flowers-landscape.jpg" alt="Handmade flower art, felt and fabric"></div>
+                <div class="gallery-mosaic-item"><img src="Images/embroidery-land.jpg" alt="Gallery embroidery art, hoop wall decor"></div>
+                <div class="gallery-mosaic-item"><img src="Images/crochet-plant-hanger.jpg" alt="Macramé wall hanging, yarn and beads"></div>
+                <div class="gallery-mosaic-item tall"><img src="Images/crochet-amigurumi-bear.jpg" alt="Crochet creations and colorful crafts"></div>
+            </div>
+            <a href="Gallery.html" class="inline-link">See full gallery &rarr;</a>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#bdb2ff" stroke-width="2.5" fill="none" opacity="0.32"/>
+        </svg>
+
+        <!-- Instagram Feed (COOL MOSAIC) -->
+        <section class="instagram-feed alt-bg2" id="instagram">
+            <h2 class="section-title">From Our Instagram</h2>
+            <div class="insta-mosaic">
+                <div class="insta-item"><img src="Images/CrochetPlushie.jpg" alt="Instagram post: crochet project"></div>
+                <div class="insta-item round"><img src="Images/flower-sunflower.jpg" alt="Instagram post: handmade flowers"></div>
+                <div class="insta-item"><img src="Images/embroidery-quote.jpg" alt="Instagram post: embroidery hoop"></div>
+                <div class="insta-item round"><img src="Images/yarn-multicolor.jpg" alt="Instagram post: macramé art"></div>
+                <div class="insta-item"><img src="Images/crochet-bunny-plush.jpg" alt="Instagram post: crochet plushie"></div>
+            </div>
+            <div class="insta-follow-center">
+                <!-- External Link: Added rel for security -->
+                <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" class="btn-secondary">Follow @FelixFiberworks</a>
+            </div>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#e2c290" stroke-width="3" fill="none" opacity="0.4"/>
+        </svg>
+
+        <!-- Testimonials (AESTHETIC CARDS) -->
+        <section class="testimonials aesthetic-testimonials alt-bg" id="testimonials">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote" aria-hidden="true">❝</div>
+                    <p>"The crochet plushie I ordered is adorable and so soft—my daughter won’t let go of it!"</p>
+                    <span>- Jessica M.</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote" aria-hidden="true">❝</div>
+                    <p>"The handmade flowers are stunning and make my office feel cheerful every day."</p>
+                    <span>- Lauren P.</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote" aria-hidden="true">❝</div>
+                    <p>"Your embroidery art is so detailed and unique. I love showing it off to guests!"</p>
+                    <span>- David R.</span>
+                </div>
+            </div>
+            <a href="Testimonials.html" class="inline-link">Read more reviews &rarr;</a>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#bdb2ff" stroke-width="2.5" fill="none" opacity="0.32"/>
+        </svg>
+
+        <!-- Blog / News Preview (MODERN CARDS) -->
+        <section class="blog-section cool-blog-section alt-bg2" id="blog">
+            <h2>Latest News & Blog</h2>
+            <div class="blog-list blog-cards">
+                <article>
+                    <div class="blog-image" style="background-image:url('Images/blog-crochet.jpg')" aria-label="Blog: Tips for Starting Your First Crochet Project"></div>
+                    <div class="blog-meta">
+                        <span class="blog-date">May 2025</span>
+                        <h4><a href="News.html">Tips for Starting Your First Crochet Project</a></h4>
+                    </div>
+                </article>
+                <article>
+                    <div class="blog-image" style="background-image:url('../Felix Fiberworks/Images/blog-flowers.jpg')" aria-label="Blog: DIY Felt Flowers for Spring Decor"></div>
+                    <div class="blog-meta">
+                        <span class="blog-date">April 2025</span>
+                        <h4><a href="News.html">DIY Felt Flowers for Spring Decor</a></h4>
+                    </div>
+                </article>
+            </div>
+            <a href="News.html" class="inline-link">Read all news &rarr;</a>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#e2c290" stroke-width="3" fill="none" opacity="0.4"/>
+        </svg>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter alt-bg" id="newsletter">
+            <h2>Stay Inspired</h2>
+            <p>Sign up for creative news, early access to new collections, and special offers.</p>
+            <form class="newsletter-form" aria-label="Newsletter signup form"><!-- Accessibility: added aria-label -->
+                <input type="email" placeholder="Your email address" required aria-label="Email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#bdb2ff" stroke-width="2.5" fill="none" opacity="0.32"/>
+        </svg>
+
+        <!-- FAQ Section -->
+        <section class="faq alt-bg2" id="faq">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>Do you ship internationally?</h4>
+                    <p>Yes, we ship worldwide. Shipping rates and times vary by location.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is everything really handmade?</h4>
+                    <p>Absolutely! Every item is crocheted, stitched, or crafted by hand in our studio with care.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I request a custom order?</h4>
+                    <p>We love custom projects! Contact us with your idea—crochet plushies, custom floral colors, and more.</p>
+                </div>
+            </div>
+            <a href="FAQs.html" class="inline-link">See all FAQs &rarr;</a>
+        </section>
+        <svg class="divider-svg" viewBox="0 0 390 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q65 0 130 10 T260 10 T390 10" stroke="#e2c290" stroke-width="3" fill="none" opacity="0.4"/>
+        </svg>
+    </main>
+  <footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="logo">Felix Fiberworks</div>
+            <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="Testimonials.html">Testimonials</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="footer-socials">
+                <!-- External Link: Added rel for security -->
+                <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+                <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+            </div>
+            <h4>Contact</h4>
+            <p>
+                <!-- Contact Email: Use mailto: for email links -->
+                <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+            </p>
+        </div>
+    </div>
+    <div class="footer-credit">
+        <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+        <script>
+    // Cart Add-to-Cart Button Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.features .add-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = btn.closest('.product-card.product-pop');
+                const id = card.getAttribute('data-title').replace(/\s+/g, '-').toLowerCase();
+                const name = card.getAttribute('data-title');
+                const price = parseFloat(card.getAttribute('data-price'));
+                const img = card.getAttribute('data-img');
+                let cart = {};
+                try {
+                    cart = JSON.parse(localStorage.getItem('cart')) || {};
+                    if (typeof cart !== "object" || Array.isArray(cart) || cart === null) cart = {};
+                } catch (e) {
+                    cart = {};
+                }
+                if (cart[id]) {
+                    cart[id].qty += 1;
+                } else {
+                    cart[id] = { id, name, price, qty: 1, img };
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                let count = 0;
+                Object.values(cart).forEach(item => count += item.qty);
+                let countDisplay = count > 999 ? "999+" : count;
+                document.querySelectorAll('#cart-count').forEach(e => e.textContent = countDisplay);
+                window.location.href = "cart.html";
+            });
+        });
+    });
+    </script>
+    <!-- Back to Top Button with text under the icon -->
+    <div class="back-to-top-wrapper">
+    <button id="backToTop" aria-label="Back to top">
+        <span class="back-to-top-arrow" aria-hidden="true">↑</span>
+    </button>
+    <span class="back-to-top-label">Back to Top</span>
+    </div>
+    <script>
+    /* Back to Top Button Functionality */
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 250) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+        btn.addEventListener('click', function() {
+            // Animate scrolling up with smooth behavior
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id="product-title-tab">Handmade Flowers | Felix Fiberworks</title>
+  <link rel="stylesheet" href="categories.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+  <script src="cart.js" defer></script>
+</head>
+<body>
+  <nav>
+    <div class="logo">Felix Fiberworks</div>
+    <div class="header-right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Categories.html">Categories</a></li>
+        <li><a href="Shop.html">Products</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <a href="cart.html" class="nav-cart">🛒 <span id="cart-count">0</span></a>
+    <a href="CustomOrder.html" class="nav-btn">Custom Orders</a>
+  </nav>
+  <div class="product-page-container">
+    <div class="product-detail-layout">
+      <div class="product-images">
+        <img id="product-image" src="" alt="Product Image">
+      </div>
+      <div class="product-info">
+        <h1 id="product-title">Product Name</h1>
+        <div class="product-price" id="product-price"></div>
+        <div class="desc" id="product-desc"></div>
+        <form>
+          <label for="size">Size:</label>
+          <select id="size" name="size"></select>
+          <br>
+          <label for="color">Color:</label>
+          <select id="color" name="color"></select>
+          <br>
+          <label for="qty">Quantity:</label>
+          <input type="number" id="qty" value="1" min="1" max="10">
+        </form>
+        <div class="product-actions">
+          <button type="button" class="add-btn" id="add-to-cart-btn">Add to Cart</button>
+          <a href="Flowers.html" class="back-btn">← Back to Flowers</a>
+        </div>
+        <div class="product-meta" id="product-meta"></div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // --- FLOWER PRODUCTS DATA (20 items, matching Flowers.html) ---
+    const FLOWER_PRODUCTS = {
+      1: {
+        name: "Classic Crochet Rose Bouquet",
+        price: 18,
+        desc: "A bouquet of lifelike crochet roses in vibrant red, perfect for gifting or home decor.",
+        image: "Images/flower-bouquet.jpg",
+        sizes: ["Bouquet", "Single Stem"],
+        colors: ["Red", "Pink", "White"],
+        meta: "Category: Bouquets<br>Tags: rose, bouquet, crochet"
+      },
+      2: {
+        name: "Sunny Sunflower Stem",
+        price: 6,
+        desc: "Brighten any room with a cheerful, handmade sunflower that never wilts.",
+        image: "Images/flower-sunflower.jpg",
+        sizes: ["One Size"],
+        colors: ["Yellow"],
+        meta: "Category: Stems<br>Tags: sunflower, crochet"
+      },
+      3: {
+        name: "Crochet Tulip Trio",
+        price: 9.50,
+        desc: "Set of three colorful crochet tulips, perfect for spring vibes all year round.",
+        image: "Images/flower-tulip.jpg",
+        sizes: ["Set of 3"],
+        colors: ["Red", "Yellow", "Purple"],
+        meta: "Category: Stems<br>Tags: tulip, crochet, flower"
+      },
+      4: {
+        name: "White Daisy Stem",
+        price: 5,
+        desc: "Simple and elegant, this crochet daisy brings a touch of nature to your space.",
+        image: "Images/flower-daisy.jpg",
+        sizes: ["One Size"],
+        colors: ["White", "Yellow"],
+        meta: "Category: Stems<br>Tags: daisy, crochet"
+      },
+      5: {
+        name: "Mixed Crochet Flower Bouquet",
+        price: 22,
+        desc: "Beautiful arrangement of various crochet flowers, ready to display or gift.",
+        image: "Images/flower-mixed-bouquet.jpg",
+        sizes: ["Bouquet"],
+        colors: ["Mixed"],
+        meta: "Category: Bouquets<br>Tags: mixed, bouquet, crochet"
+      },
+      6: {
+        name: "Lavender Sprigs Set",
+        price: 7.50,
+        desc: "Set of three soothing lavender sprigs, ideal for calming vibes and decor.",
+        image: "Images/flower-lavender.jpg",
+        sizes: ["Set of 3"],
+        colors: ["Purple"],
+        meta: "Category: Stems<br>Tags: lavender, crochet"
+      },
+      7: {
+        name: "Peony Blossom",
+        price: 8.75,
+        desc: "Plush and full crochet peony, adds a soft, romantic touch to any setting.",
+        image: "Images/flower-peony.jpg",
+        sizes: ["One Size"],
+        colors: ["Pink", "White"],
+        meta: "Category: Blooms<br>Tags: peony, flower, crochet"
+      },
+      8: {
+        name: "Bluebell Mini Bunch",
+        price: 6.25,
+        desc: "Charming cluster of bluebells, handmade for a delicate, natural look.",
+        image: "Images/flower-bluebell.jpg",
+        sizes: ["Mini Bunch"],
+        colors: ["Blue"],
+        meta: "Category: Bunches<br>Tags: bluebell, crochet"
+      },
+      9: {
+        name: "Crochet Lily Stem",
+        price: 7.50,
+        desc: "Graceful lily stem, a lovely, lasting alternative to real flowers.",
+        image: "Images/flower-lily.jpg",
+        sizes: ["One Size"],
+        colors: ["White", "Pink"],
+        meta: "Category: Stems<br>Tags: lily, crochet"
+      },
+      10: {
+        name: "Pink Carnation Stem",
+        price: 5.75,
+        desc: "Soft pink carnation, handmade with attention to every petal.",
+        image: "Images/flower-carnation.jpg",
+        sizes: ["One Size"],
+        colors: ["Pink"],
+        meta: "Category: Stems<br>Tags: carnation, flower"
+      },
+      11: {
+        name: "Pansy Flower Pin",
+        price: 4.25,
+        desc: "Wearable crochet pansy pin, perfect for accessorizing bags or jackets.",
+        image: "Images/flower-pansy.jpg",
+        sizes: ["One Size"],
+        colors: ["Purple", "Yellow"],
+        meta: "Category: Accessories<br>Tags: pansy, pin, crochet"
+      },
+      12: {
+        name: "Magnolia Blossom",
+        price: 7.99,
+        desc: "Elegant and subtle, this magnolia is crafted for timeless beauty.",
+        image: "Images/flower-magnolia.jpg",
+        sizes: ["One Size"],
+        colors: ["White"],
+        meta: "Category: Blooms<br>Tags: magnolia, flower"
+      },
+      13: {
+        name: "Cherry Blossom Branch",
+        price: 8.50,
+        desc: "Branch of pink cherry blossoms, handmade for a soft, springtime touch.",
+        image: "Images/flower-cherryblossom.jpg",
+        sizes: ["Branch"],
+        colors: ["Pink"],
+        meta: "Category: Branches<br>Tags: cherry blossom, crochet"
+      },
+      14: {
+        name: "Crochet Marigold Stem",
+        price: 5.99,
+        desc: "Bright orange marigold, handmade for festive decor or gifts.",
+        image: "Images/flower-marigold.jpg",
+        sizes: ["One Size"],
+        colors: ["Orange"],
+        meta: "Category: Stems<br>Tags: marigold, crochet"
+      },
+      15: {
+        name: "Anemone Flower Stem",
+        price: 6.75,
+        desc: "Vivid anemone, handmade for a pop of color in any arrangement.",
+        image: "Images/flower-anemone.jpg",
+        sizes: ["One Size"],
+        colors: ["Red", "White"],
+        meta: "Category: Stems<br>Tags: anemone, flower"
+      },
+      16: {
+        name: "Violet Mini Bouquet",
+        price: 6.50,
+        desc: "Lovely bunch of crochet violets, perfect for small vases or gifts.",
+        image: "Images/flower-violet.jpg",
+        sizes: ["Mini Bouquet"],
+        colors: ["Violet", "Purple"],
+        meta: "Category: Bouquets<br>Tags: violet, crochet"
+      },
+      17: {
+        name: "Daffodil Stem",
+        price: 5.50,
+        desc: "Cheery yellow daffodil, a sign of hope and new beginnings.",
+        image: "Images/flower-daffodil.jpg",
+        sizes: ["One Size"],
+        colors: ["Yellow"],
+        meta: "Category: Stems<br>Tags: daffodil, crochet"
+      },
+      18: {
+        name: "Crochet Succulent Pot",
+        price: 7,
+        desc: "Adorable crochet succulent in a mini pot – low maintenance, pure charm.",
+        image: "Images/flower-succulent.jpg",
+        sizes: ["Mini Pot"],
+        colors: ["Green"],
+        meta: "Category: Potted<br>Tags: succulent, crochet"
+      },
+      19: {
+        name: "Orchid Blossom Stem",
+        price: 8.25,
+        desc: "Elegant crochet orchid, adds sophistication to any floral arrangement.",
+        image: "Images/flower-orchid.jpg",
+        sizes: ["One Size"],
+        colors: ["White", "Purple"],
+        meta: "Category: Stems<br>Tags: orchid, flower"
+      },
+      20: {
+        name: "Cosmos Flower Stem",
+        price: 5.99,
+        desc: "Whimsical cosmos flower, handmade for a touch of garden charm.",
+        image: "Images/flower-cosmos.jpg",
+        sizes: ["One Size"],
+        colors: ["Pink", "White"],
+        meta: "Category: Stems<br>Tags: cosmos, flower"
+      }
+    };
+
+    function getProductId() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
+    }
+
+    function renderProduct() {
+      const id = getProductId();
+      const product = FLOWER_PRODUCTS[id];
+      if (!product) {
+        document.getElementById('product-title').textContent = "Product Not Found";
+        document.getElementById('product-title-tab').textContent = "Product Not Found | Felix Fiberworks";
+        document.getElementById('product-image').src = "https://via.placeholder.com/300x300?text=Product+Not+Found";
+        document.getElementById('product-image').alt = "Product Not Found";
+        document.getElementById('product-price').textContent = "";
+        document.getElementById('product-desc').textContent = "Sorry, this product does not exist or has not been selected. Please return to the shop and try again.";
+        document.getElementById('product-meta').innerHTML = "";
+        document.getElementById('size').innerHTML = "";
+        document.getElementById('color').innerHTML = "";
+        document.getElementById('add-to-cart-btn').disabled = true;
+        document.getElementById('add-to-cart-btn').textContent = "Unavailable";
+        return;
+      }
+      document.getElementById('product-title').textContent = product.name;
+      document.getElementById('product-title-tab').textContent = product.name + " | Felix Fiberworks";
+      document.getElementById('product-image').src = product.image;
+      document.getElementById('product-image').alt = product.name;
+      document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById('product-desc').textContent = product.desc;
+      document.getElementById('product-meta').innerHTML = product.meta;
+
+      // Populate size and color
+      const sizeSel = document.getElementById('size');
+      sizeSel.innerHTML = "";
+      (product.sizes || []).forEach(sz => {
+        const opt = document.createElement('option');
+        opt.textContent = sz;
+        sizeSel.appendChild(opt);
+      });
+
+      const colorSel = document.getElementById('color');
+      colorSel.innerHTML = "";
+      (product.colors || []).forEach(c => {
+        const opt = document.createElement('option');
+        opt.textContent = c;
+        colorSel.appendChild(opt);
+      });
+
+      // Enable Add to Cart button
+      document.getElementById('add-to-cart-btn').disabled = false;
+      document.getElementById('add-to-cart-btn').textContent = "Add to Cart";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderProduct();
+
+      document.getElementById('add-to-cart-btn').onclick = function() {
+        const id = getProductId();
+        if (!FLOWER_PRODUCTS[id]) return; // do nothing if not found
+        const qty = parseInt(document.getElementById('qty').value) || 1;
+        let cart = {};
+        try {
+          cart = JSON.parse(localStorage.getItem('cart')) || {};
+        } catch(e) { cart = {}; }
+        if (!cart[id]) {
+          cart[id] = {
+            id,
+            name: FLOWER_PRODUCTS[id].name,
+            price: FLOWER_PRODUCTS[id].price,
+            img: FLOWER_PRODUCTS[id].image,
+            qty: 0
+          };
+        }
+        cart[id].qty += qty;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Added to cart!');
+      };
+    });
+  </script>
+</body>
+</html>

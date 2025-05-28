@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop affordable handmade crochet, plushies, accessories, and more at Felix Fiberworks. Add unique, cozy items to your cart!">
+  <title>Shop | Felix Fiberworks</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+  <script src="cart.js" defer></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff6e7 75%, #ffe06630 100%);
+      min-height: 100vh;
+      position: relative;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .shop-hero-blob {
+      position: absolute;
+      top: -100px; left: -80px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle at 50% 40%, #bdb2ff 0%, #ffe066 65%, transparent 100%);
+      opacity: 0.13;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+    .heros {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3.5rem 1rem 2rem 1rem;
+      background: none;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content {
+      max-width: 95vw;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      color: #6f42c1;
+      font-size: 2.4rem;
+      font-weight: 900;
+      margin: 0 0 0.6rem 0;
+    }
+    .hero-desc {
+      color: #a69c90;
+      font-size: 1.15rem;
+      margin: 0 0 1.2rem 0;
+    }
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: #bdb2ff;
+      margin-bottom: 1.4rem;
+      font-weight: 900;
+      position: relative;
+      z-index: 2;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      margin: 0.6rem auto 0 auto;
+      width: 40px;
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #e2c290 40%, #bdb2ff 100%);
+      opacity: 0.3;
+    }
+    .shop-section {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem auto;
+      padding: 2rem 2vw 2.7rem 2vw;
+      background: #fffdfa;
+      border-radius: 32px;
+      box-shadow: 0 12px 44px #e2c29023;
+      position: relative;
+      z-index: 2;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px 28px;
+      justify-items: center;
+      align-items: stretch;
+      margin-top: 32px;
+    }
+    .product-card.product-pop {
+      background: #fffdfa;
+      border-radius: 15px;
+      box-shadow: 0 4px 14px rgba(226,194,144,0.09);
+      padding: 1.3em 1em 1em 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 320px;
+      width: 100%;
+      transition: box-shadow 0.18s, transform 0.18s;
+      text-align: center;
+      margin: 1em auto;
+      border: 2.5px solid #e2c29022;
+      min-height: 420px;
+    }
+    .product-card.product-pop:hover {
+      box-shadow: 0 8px 24px #bdb2ff22, 0 3px 12px #ffe06618;
+      transform: translateY(-4px) scale(1.04);
+    }
+    .product-img-wrap {
+      width: 100%;
+      height: 180px;
+      background: #f7f3ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 13px;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+    }
+    .product-img {
+      height: 140px;
+      width: auto;
+      object-fit: contain;
+      background: #fffdfa;
+      display: block;
+      margin: 0 auto;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 8px;
+      max-width: 92%;
+    }
+    .product-info h3 {
+      margin: 0.5em 0 0.2em 0;
+      font-size: 1.11rem;
+      font-family: 'Playfair Display', serif;
+      color: #6f42c1;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .product-info p {
+      color: #a69c90;
+      font-size: 1.01em;
+      margin: 0.4em 0 0.7em 0;
+      line-height: 1.52;
+    }
+    .price {
+      font-size: 1.08rem;
+      font-weight: bold;
+      color: #bdb2ff;
+      margin-bottom: 0.9rem;
+      display: block;
+    }
+    .view-more-btn.btn-secondary {
+      background: #bdb2ff;
+      color: #fffdfa;
+      border: none;
+      border-radius: 50px;
+      padding: 0.64rem 1.7rem;
+      font-size: 1.01rem;
+      font-weight: 700;
+      margin-top: 0.6em;
+      box-shadow: 0 2px 8px #bdb2ff33;
+      text-decoration: none;
+      transition: background 0.16s, color 0.16s;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .view-more-btn.btn-secondary:hover {
+      background: #ffe066;
+      color: #6f42c1;
+    }
+    @media (max-width: 900px) {
+      .shop-section { padding: 1.2rem 1vw 1.5rem 1vw; }
+      .product-grid { gap: 18px 10px; }
+      .product-card.product-pop { min-height: 390px; }
+      .product-img-wrap { height: 140px; }
+      .product-img { height: 86px; }
+    }
+    @media (max-width: 600px) {
+      .shop-section { border-radius: 18px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-card.product-pop { max-width: 99vw; min-height: 0; padding: 0.7em 0.5em 0.7em 0.5em; }
+      .product-img-wrap { height: 84px; }
+      .product-img { height: 64px; }
+      .hero-title { font-size: 1.3rem; }
+      .section-title { font-size: 1.09rem; }
+    }
+    /* --- Back to Top Button: fixed, with label below, responsive --- */
+    .back-to-top-wrapper {
+        position: fixed;
+        right: 18px;
+        bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 199;
+        pointer-events: none;
+    }
+    #backToTop {
+        width: 48px;
+        height: 48px;
+        background: var(--secondary, #bdb2ff);
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: bold;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(.4,0,.2,1), background 0.2s, color 0.2s, transform 0.3s cubic-bezier(.4,0,.2,1);
+        transform: translateY(30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+    .back-to-top-arrow {
+        color: #000;
+        font-size: 1.6em;
+        line-height: 1;
+    }
+    .back-to-top-label {
+        margin-top: 2px;
+        font-size: 0.93rem;
+        color: #000;
+        font-weight: 500;
+        background: rgba(255,255,255,0.88);
+        border-radius: 6px;
+        padding: 1px 8px;
+        user-select: none;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    #backToTop.visible + .back-to-top-label {
+        opacity: 1;
+    }
+    #backToTop:focus .back-to-top-label,
+    #backToTop:hover .back-to-top-label {
+        color: var(--primary, #e2c290);
+    }
+    #backToTop:focus, #backToTop:hover {
+        background: var(--primary, #e2c290);
+        color: #000;
+        outline: none;
+        box-shadow: 0 6px 16px #e2c29044;
+    }
+    @media (max-width: 600px) {
+        .back-to-top-wrapper {
+            right: 8px;
+            bottom: 18px;
+        }
+        #backToTop {
+            width: 36px;
+            height: 36px;
+            font-size: 1.2rem;
+        }
+        .back-to-top-label {
+            font-size: 0.8rem;
+            padding: 0 5px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="shop-hero-blob"></div>
+  <nav aria-label="Main navigation">
+    <div class="logo">Felix Fiberworks</div>
+    <div class="header-right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Categories.html">Categories</a></li>
+        <li><a href="Shop.html" aria-current="page" class="active">Products</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <a href="cart.html" class="nav-cart" aria-label="View cart">🛒 <span id="cart-count">0</span></a>
+    <a href="CustomOrder.html" class="nav-btn">Custom Orders</a>
+  </nav>
+  <main>
+    <section class="heros">
+      <div class="hero-content">
+        <h1 class="hero-title">🧺 Shop All Fiberworks</h1>
+        <p class="hero-desc">Discover our handmade crochet, embroidery, and yarn art. Every item is crafted with love, ready to bring warmth and charm to your life.</p>
+      </div>
+    </section>
+    <section class="shop-section">
+      <h2 class="section-title">All Products</h2>
+      <div class="product-grid">
+      <!-- 20 Product Cards with more affordable pricing and improved alt text -->
+    <!-- PRODUCTS 1–20 (RANDOM ORDER) -->
+    <div class="product-card">
+      <img src="Images/embroidery-cats.jpg" alt="Cat Lovers Embroidery, stitched cats">
+      <h3>Cat Lovers Embroidery</h3>
+      <div class="product-price">$6.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=6" class="view-btn">View</a>
+        <button class="add-btn" data-id="e6" data-name="Cat Lovers Embroidery" data-price="6.99" data-img="Images/embroidery-cats.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-neon.jpg" alt="Neon Acrylic Yarn, 100g, bright colors">
+      <h3>Neon Acrylic Yarn (100g)</h3>
+      <div class="product-price">$2.25</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=13" class="view-btn">View</a>
+        <button class="add-btn" data-id="y13" data-name="Neon Acrylic Yarn (100g)" data-price="2.25" data-img="Images/yarn-neon.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-basket.webp" alt="Crochet Storage Basket, organizer">
+      <h3>Crochet Storage Basket</h3>
+      <div class="product-price">$11.00</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=16" class="view-btn">View</a>
+        <button class="add-btn" data-id="c16" data-name="Crochet Storage Basket" data-price="11.00" data-img="Images/crochet-basket.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-anemone.jpg" alt="Anemone Flower Stem, vivid">
+      <h3>Anemone Flower Stem</h3>
+      <div class="product-price">$4.50</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=15" class="view-btn">View</a>
+        <button class="add-btn" data-id="f15" data-name="Anemone Flower Stem" data-price="4.50" data-img="Images/flower-anemone.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-daffodil.jpg" alt="Daffodil Stem, yellow crochet">
+      <h3>Daffodil Stem</h3>
+      <div class="product-price">$3.15</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=17" class="view-btn">View</a>
+        <button class="add-btn" data-id="f17" data-name="Daffodil Stem" data-price="3.15" data-img="Images/flower-daffodil.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/Embroidery1.jpg" alt="Floral Embroidery Hoop, hand-stitched wall art">
+      <h3>Floral Embroidery Hoop</h3>
+      <div class="product-price">$9.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=1" class="view-btn">View</a>
+        <button class="add-btn" data-id="e1" data-name="Floral Embroidery Hoop" data-price="9.99" data-img="Images/embroidery-floral-hoop.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-cotton-xl.jpg" alt="XL Cotton Yarn, 200g, big projects">
+      <h3>XL Cotton Yarn (200g)</h3>
+      <div class="product-price">$5.50</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=9" class="view-btn">View</a>
+        <button class="add-btn" data-id="y9" data-name="XL Cotton Yarn (200g)" data-price="5.50" data-img="Images/yarn-cotton-xl.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-bunny-plush.jpg" alt="Crochet Bunny Plush, soft toy">
+      <h3>Crochet Bunny Plush</h3>
+      <div class="product-price">$8.99</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=10" class="view-btn">View</a>
+        <button class="add-btn" data-id="c10" data-name="Crochet Bunny Plush" data-price="8.99" data-img="Images/crochet-bunny-plush.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-marigold.jpg" alt="Crochet Marigold Stem, orange">
+      <h3>Crochet Marigold Stem</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=14" class="view-btn">View</a>
+        <button class="add-btn" data-id="f14" data-name="Crochet Marigold Stem" data-price="3.99" data-img="Images/flower-marigold.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-moon.jpg" alt="Moon & Stars Mini Hoop, celestial">
+      <h3>Moon & Stars Mini Hoop</h3>
+      <div class="product-price">$6.25</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=16" class="view-btn">View</a>
+        <button class="add-btn" data-id="e16" data-name="Moon & Stars Mini Hoop" data-price="6.25" data-img="Images/embroidery-moon.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-variegated.jpg" alt="Variegated Yarn, 100g, multicolor stripes">
+      <h3>Variegated Yarn (100g)</h3>
+      <div class="product-price">$2.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=10" class="view-btn">View</a>
+        <button class="add-btn" data-id="y10" data-name="Variegated Yarn (100g)" data-price="2.99" data-img="Images/yarn-variegated.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-tulip.jpg" alt="Crochet Tulip Trio, colorful tulips">
+      <h3>Crochet Tulip Trio</h3>
+      <div class="product-price">$5.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=3" class="view-btn">View</a>
+        <button class="add-btn" data-id="f3" data-name="Crochet Tulip Trio" data-price="5.99" data-img="Images/flower-tulip.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-keychain.jpg" alt="Mini Crochet Keychain, colorful">
+      <h3>Mini Crochet Keychain</h3>
+      <div class="product-price">$2.95</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=6" class="view-btn">View</a>
+        <button class="add-btn" data-id="c6" data-name="Mini Crochet Keychain" data-price="2.95" data-img="Images/crochet-keychain.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-sunflower.jpg" alt="Sunny Sunflower Stem, handmade">
+      <h3>Sunny Sunflower Stem</h3>
+      <div class="product-price">$3.95</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=2" class="view-btn">View</a>
+        <button class="add-btn" data-id="f2" data-name="Sunny Sunflower Stem" data-price="3.95" data-img="Images/flower-sunflower.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-pastel.jpg" alt="Pastel Color Yarn Pack, 5x20g, soft colors">
+      <h3>Pastel Color Yarn Pack (5x20g)</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=15" class="view-btn">View</a>
+        <button class="add-btn" data-id="y15" data-name="Pastel Color Yarn Pack (5x20g)" data-price="4.99" data-img="Images/yarn-pastel.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-leaf.webp" alt="Leafy Green Patch, iron-on or sew-on">
+      <h3>Leafy Green Patch</h3>
+      <div class="product-price">$2.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=7" class="view-btn">View</a>
+        <button class="add-btn" data-id="e7" data-name="Leafy Green Patch" data-price="2.99" data-img="Images/embroidery-leaf.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-carnation.jpg" alt="Pink Carnation Stem, crochet flower">
+      <h3>Pink Carnation Stem</h3>
+      <div class="product-price">$3.50</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=10" class="view-btn">View</a>
+        <button class="add-btn" data-id="f10" data-name="Pink Carnation Stem" data-price="3.50" data-img="Images/flower-carnation.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-mushroom.jpg" alt="Mushroom Forest Mini Art, tiny hoop">
+      <h3>Mushroom Forest Mini Art</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=9" class="view-btn">View</a>
+        <button class="add-btn" data-id="e9" data-name="Mushroom Forest Mini Art" data-price="4.99" data-img="Images/embroidery-mushroom.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-superbulky.jpg" alt="Super Bulky Yarn, 150g, fastest projects">
+      <h3>Super Bulky Yarn (150g)</h3>
+      <div class="product-price">$5.25</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=18" class="view-btn">View</a>
+        <button class="add-btn" data-id="y18" data-name="Super Bulky Yarn (150g)" data-price="5.25" data-img="Images/yarn-superbulky.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <!-- END OF FIRST 20; CONTINUE IN NEXT REPLY -->
+   <!-- PRODUCTS 21–40 (RANDOM ORDER) -->
+    <div class="product-card">
+      <img src="Images/embroidery-moon.jpg" alt="Moon & Stars Mini Hoop, celestial">
+      <h3>Moon & Stars Mini Hoop</h3>
+      <div class="product-price">$6.25</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=16" class="view-btn">View</a>
+        <button class="add-btn" data-id="e16" data-name="Moon & Stars Mini Hoop" data-price="6.25" data-img="Images/embroidery-moon.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-variegated.jpg" alt="Variegated Yarn, 100g, multicolor stripes">
+      <h3>Variegated Yarn (100g)</h3>
+      <div class="product-price">$2.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=10" class="view-btn">View</a>
+        <button class="add-btn" data-id="y10" data-name="Variegated Yarn (100g)" data-price="2.99" data-img="Images/yarn-variegated.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-carnation.jpg" alt="Pink Carnation Stem, crochet flower">
+      <h3>Pink Carnation Stem</h3>
+      <div class="product-price">$3.50</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=10" class="view-btn">View</a>
+        <button class="add-btn" data-id="f10" data-name="Pink Carnation Stem" data-price="3.50" data-img="Images/flower-carnation.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-bird.jpg" alt="Songbird Wall Hanging, hand stitched">
+      <h3>Songbird Wall Hanging</h3>
+      <div class="product-price">$6.75</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=12" class="view-btn">View</a>
+        <button class="add-btn" data-id="e12" data-name="Songbird Wall Hanging" data-price="6.75" data-img="Images/embroidery-bird.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-flower-brooch.jpg" alt="Crochet Flower Brooch, floral pin">
+      <h3>Crochet Flower Brooch</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=8" class="view-btn">View</a>
+        <button class="add-btn" data-id="c8" data-name="Crochet Flower Brooch" data-price="3.99" data-img="Images/crochet-flower-brooch.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-cotton.jpg" alt="Soft Cotton Yarn, 50g, gentle and easy to work with">
+      <h3>Soft Cotton Yarn (50g)</h3>
+      <div class="product-price">$1.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=1" class="view-btn">View</a>
+        <button class="add-btn" data-id="y1" data-name="Soft Cotton Yarn (50g)" data-price="1.99" data-img="Images/yarn-cotton.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-sunflower.jpg" alt="Sunny Sunflower Stem, handmade">
+      <h3>Sunny Sunflower Stem</h3>
+      <div class="product-price">$3.95</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=2" class="view-btn">View</a>
+        <button class="add-btn" data-id="f2" data-name="Sunny Sunflower Stem" data-price="3.95" data-img="Images/flower-sunflower.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-succulent.jpg" alt="Succulent Garden Patch, embroidered">
+      <h3>Succulent Garden Patch</h3>
+      <div class="product-price">$3.50</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=19" class="view-btn">View</a>
+        <button class="add-btn" data-id="e19" data-name="Succulent Garden Patch" data-price="3.50" data-img="Images/embroidery-succulent.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/Colorful Crochet Market Bag.jpg" alt="Crochet Market Bag, eco-friendly">
+      <h3>Colorful Crochet Market Bag</h3>
+      <div class="product-price">$14.00</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=3" class="view-btn">View</a>
+        <button class="add-btn" data-id="c3" data-name="Colorful Crochet Market Bag" data-price="14.00" data-img="Images/Colorful Crochet Market Bag.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-bouquet.jpg" alt="Classic Crochet Rose Bouquet, red roses">
+      <h3>Classic Crochet Rose Bouquet</h3>
+      <div class="product-price">$11.00</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=1" class="view-btn">View</a>
+        <button class="add-btn" data-id="f1" data-name="Classic Crochet Rose Bouquet" data-price="11.00" data-img="Images/flower-bouquet1.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-cactus.jpg" alt="Cactus Embroidery Hoop, modern decor">
+      <h3>Cactus Embroidery Hoop</h3>
+      <div class="product-price">$5.75</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=14" class="view-btn">View</a>
+        <button class="add-btn" data-id="e14" data-name="Cactus Embroidery Hoop" data-price="5.75" data-img="Images/embroidery-cactus.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-gradient.jpg" alt="Gradient Color Yarn, 100g, beautiful transitions">
+      <h3>Gradient Color Yarn (100g)</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=5" class="view-btn">View</a>
+        <button class="add-btn" data-id="y5" data-name="Gradient Color Yarn (100g)" data-price="3.99" data-img="Images/yarn-gradient.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-lavender.jpg" alt="Lavender Sprigs Set, handmade">
+      <h3>Lavender Sprigs Set</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=6" class="view-btn">View</a>
+        <button class="add-btn" data-id="f6" data-name="Lavender Sprigs Set" data-price="4.99" data-img="Images/flower-lavender.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-basket.webp" alt="Crochet Storage Basket, organizer">
+      <h3>Crochet Storage Basket</h3>
+      <div class="product-price">$11.00</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=16" class="view-btn">View</a>
+        <button class="add-btn" data-id="c16" data-name="Crochet Storage Basket" data-price="11.00" data-img="Images/crochet-basket.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-cosmos.jpg" alt="Cosmos Flower Stem, whimsical">
+      <h3>Cosmos Flower Stem</h3>
+      <div class="product-price">$3.50</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=20" class="view-btn">View</a>
+        <button class="add-btn" data-id="f20" data-name="Cosmos Flower Stem" data-price="3.50" data-img="Images/flower-cosmos.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-mushroom.jpg" alt="Mushroom Forest Mini Art, tiny hoop">
+      <h3>Mushroom Forest Mini Art</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=9" class="view-btn">View</a>
+        <button class="add-btn" data-id="e9" data-name="Mushroom Forest Mini Art" data-price="4.99" data-img="Images/embroidery-mushroom.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-superbulky.jpg" alt="Super Bulky Yarn, 150g, fastest projects">
+      <h3>Super Bulky Yarn (150g)</h3>
+      <div class="product-price">$5.25</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=18" class="view-btn">View</a>
+        <button class="add-btn" data-id="y18" data-name="Super Bulky Yarn (150g)" data-price="5.25" data-img="Images/yarn-superbulky.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-bluebell.jpg" alt="Bluebell Mini Bunch">
+      <h3>Bluebell Mini Bunch</h3>
+      <div class="product-price">$3.75</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=8" class="view-btn">View</a>
+        <button class="add-btn" data-id="f8" data-name="Bluebell Mini Bunch" data-price="3.75" data-img="Images/flower-bluebell.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-leaf.webp" alt="Leafy Green Patch, iron-on or sew-on">
+      <h3>Leafy Green Patch</h3>
+      <div class="product-price">$2.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=7" class="view-btn">View</a>
+        <button class="add-btn" data-id="e7" data-name="Leafy Green Patch" data-price="2.99" data-img="Images/embroidery-leaf.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-keychain.jpg" alt="Mini Crochet Keychain, colorful">
+      <h3>Mini Crochet Keychain</h3>
+      <div class="product-price">$2.95</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=6" class="view-btn">View</a>
+        <button class="add-btn" data-id="c6" data-name="Mini Crochet Keychain" data-price="2.95" data-img="Images/crochet-keychain.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-cherryblossom.jpg" alt="Cherry Blossom Branch, spring">
+      <h3>Cherry Blossom Branch</h3>
+      <div class="product-price">$5.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=13" class="view-btn">View</a>
+        <button class="add-btn" data-id="f13" data-name="Cherry Blossom Branch" data-price="5.99" data-img="Images/flower-cherryblossom.jpg">Add to Cart</button>
+      </div>
+    </div>
+      <!-- End Product Cards -->
+    <!-- PRODUCTS 41–60 (RANDOM ORDER) -->
+    <div class="product-card">
+      <img src="Images/yarn-organic.jpg" alt="Organic Cotton Yarn, 50g, pure and gentle">
+      <h3>Organic Cotton Yarn (50g)</h3>
+      <div class="product-price">$2.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=12" class="view-btn">View</a>
+        <button class="add-btn" data-id="y12" data-name="Organic Cotton Yarn (50g)" data-price="2.99" data-img="Images/yarn-organic.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-lily.jpg" alt="Crochet Lily Stem, graceful">
+      <h3>Crochet Lily Stem</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=9" class="view-btn">View</a>
+        <button class="add-btn" data-id="f9" data-name="Crochet Lily Stem" data-price="4.99" data-img="Images/flower-lily.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-cats.jpg" alt="Cat Lovers Embroidery, stitched cats">
+      <h3>Cat Lovers Embroidery</h3>
+      <div class="product-price">$6.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=6" class="view-btn">View</a>
+        <button class="add-btn" data-id="e6" data-name="Cat Lovers Embroidery" data-price="6.99" data-img="Images/embroidery-cats.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-flower-brooch.jpg" alt="Crochet Flower Brooch, floral pin">
+      <h3>Crochet Flower Brooch</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=8" class="view-btn">View</a>
+        <button class="add-btn" data-id="c8" data-name="Crochet Flower Brooch" data-price="3.99" data-img="Images/crochet-flower-brooch.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-cotton-xl.jpg" alt="XL Cotton Yarn, 200g, big projects">
+      <h3>XL Cotton Yarn (200g)</h3>
+      <div class="product-price">$5.50</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=9" class="view-btn">View</a>
+        <button class="add-btn" data-id="y9" data-name="XL Cotton Yarn (200g)" data-price="5.50" data-img="Images/yarn-cotton-xl.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-violet.jpg" alt="Violet Mini Bouquet, crochet bouquet">
+      <h3>Violet Mini Bouquet</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=16" class="view-btn">View</a>
+        <button class="add-btn" data-id="f16" data-name="Violet Mini Bouquet" data-price="3.99" data-img="Images/flower-violet.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-butterfly.jpg" alt="Butterfly Brooch, wearable embroidery">
+      <h3>Butterfly Brooch</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=15" class="view-btn">View</a>
+        <button class="add-btn" data-id="e15" data-name="Butterfly Brooch" data-price="4.99" data-img="Images/embroidery-butterfly.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-bunny-plush.jpg" alt="Crochet Bunny Plush, soft toy">
+      <h3>Crochet Bunny Plush</h3>
+      <div class="product-price">$8.99</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=10" class="view-btn">View</a>
+        <button class="add-btn" data-id="c10" data-name="Crochet Bunny Plush" data-price="8.99" data-img="Images/crochet-bunny-plush.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-daffodil.jpg" alt="Daffodil Stem, yellow crochet">
+      <h3>Daffodil Stem</h3>
+      <div class="product-price">$3.15</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=17" class="view-btn">View</a>
+        <button class="add-btn" data-id="f17" data-name="Daffodil Stem" data-price="3.15" data-img="Images/flower-daffodil.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-superbulky.jpg" alt="Super Bulky Yarn, 150g, fastest projects">
+      <h3>Super Bulky Yarn (150g)</h3>
+      <div class="product-price">$5.25</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=18" class="view-btn">View</a>
+        <button class="add-btn" data-id="y18" data-name="Super Bulky Yarn (150g)" data-price="5.25" data-img="Images/yarn-superbulky.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-cactus.jpg" alt="Cactus Embroidery Hoop, modern decor">
+      <h3>Cactus Embroidery Hoop</h3>
+      <div class="product-price">$5.75</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=14" class="view-btn">View</a>
+        <button class="add-btn" data-id="e14" data-name="Cactus Embroidery Hoop" data-price="5.75" data-img="Images/embroidery-cactus.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-lavender.jpg" alt="Lavender Sprigs Set, handmade">
+      <h3>Lavender Sprigs Set</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=6" class="view-btn">View</a>
+        <button class="add-btn" data-id="f6" data-name="Lavender Sprigs Set" data-price="4.99" data-img="Images/flower-lavender.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-cotton.jpg" alt="Soft Cotton Yarn, 50g, gentle and easy to work with">
+      <h3>Soft Cotton Yarn (50g)</h3>
+      <div class="product-price">$1.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=1" class="view-btn">View</a>
+        <button class="add-btn" data-id="y1" data-name="Soft Cotton Yarn (50g)" data-price="1.99" data-img="Images/yarn-cotton.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/Embroidery1.jpg" alt="Floral Embroidery Hoop, hand-stitched wall art">
+      <h3>Floral Embroidery Hoop</h3>
+      <div class="product-price">$9.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=1" class="view-btn">View</a>
+        <button class="add-btn" data-id="e1" data-name="Floral Embroidery Hoop" data-price="9.99" data-img="Images/embroidery-floral-hoop.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-mixed-bouquet.jpg" alt="Mixed Crochet Flower Bouquet, arrangement">
+      <h3>Mixed Crochet Flower Bouquet</h3>
+      <div class="product-price">$13.50</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=5" class="view-btn">View</a>
+        <button class="add-btn" data-id="f5" data-name="Mixed Crochet Flower Bouquet" data-price="13.50" data-img="Images/flower-mixed-bouquet.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/Colorful Crochet Market Bag.webp" alt="Crochet Market Bag, eco-friendly">
+      <h3>Colorful Crochet Market Bag</h3>
+      <div class="product-price">$14.00</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=3" class="view-btn">View</a>
+        <button class="add-btn" data-id="c3" data-name="Colorful Crochet Market Bag" data-price="14.00" data-img="Images/Colorful Crochet Market Bag.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-gradient.jpg" alt="Gradient Color Yarn, 100g, beautiful transitions">
+      <h3>Gradient Color Yarn (100g)</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=5" class="view-btn">View</a>
+        <button class="add-btn" data-id="y5" data-name="Gradient Color Yarn (100g)" data-price="3.99" data-img="Images/yarn-gradient.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-lavender.jpg" alt="Lavender Sprigs Set, handmade">
+      <h3>Lavender Sprigs Set</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=6" class="view-btn">View</a>
+        <button class="add-btn" data-id="f6b" data-name="Lavender Sprigs Set" data-price="4.99" data-img="Images/flower-lavender.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-pouch.webp" alt="Crochet Zipper Pouch, lined">
+      <h3>Crochet Zipper Pouch</h3>
+      <div class="product-price">$5.99</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=17" class="view-btn">View</a>
+        <button class="add-btn" data-id="c17" data-name="Crochet Zipper Pouch" data-price="5.99" data-img="Images/crochet-pouch.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-leaf.webp" alt="Leafy Green Patch, iron-on or sew-on">
+      <h3>Leafy Green Patch</h3>
+      <div class="product-price">$2.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=7" class="view-btn">View</a>
+        <button class="add-btn" data-id="e7" data-name="Leafy Green Patch" data-price="2.99" data-img="Images/embroidery-leaf.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-bouquet.jpg" alt="Classic Crochet Rose Bouquet, red roses">
+      <h3>Classic Crochet Rose Bouquet</h3>
+      <div class="product-price">$11.00</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=1" class="view-btn">View</a>
+        <button class="add-btn" data-id="f1" data-name="Classic Crochet Rose Bouquet" data-price="11.00" data-img="Images/flower-bouquet1.jpg">Add to Cart</button>
+      </div>
+    </div>
+      <!-- end of 3rd -->
+    <!-- PRODUCTS 61–80 (RANDOM ORDER) -->
+    <div class="product-card">
+      <img src="Images/yarn-pastel.jpg" alt="Pastel Color Yarn Pack, 5x20g, soft colors">
+      <h3>Pastel Color Yarn Pack (5x20g)</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=15" class="view-btn">View</a>
+        <button class="add-btn" data-id="y15" data-name="Pastel Color Yarn Pack (5x20g)" data-price="4.99" data-img="Images/yarn-pastel.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-earrings.jpg" alt="Crochet Flower Earrings, lightweight">
+      <h3>Crochet Flower Earrings</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=15" class="view-btn">View</a>
+        <button class="add-btn" data-id="c15" data-name="Crochet Flower Earrings" data-price="3.99" data-img="Images/crochet-earrings.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-pansy.jpg" alt="Pansy Flower Pin, wearable">
+      <h3>Pansy Flower Pin</h3>
+      <div class="product-price">$2.65</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=11" class="view-btn">View</a>
+        <button class="add-btn" data-id="f11" data-name="Pansy Flower Pin" data-price="2.65" data-img="Images/flower-pansy.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-bird.jpg" alt="Songbird Wall Hanging, hand stitched">
+      <h3>Songbird Wall Hanging</h3>
+      <div class="product-price">$6.75</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=12" class="view-btn">View</a>
+        <button class="add-btn" data-id="e12" data-name="Songbird Wall Hanging" data-price="6.75" data-img="Images/embroidery-bird.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-handdyed.jpg" alt="Hand-dyed Yarn, 100g, unique colorways">
+      <h3>Hand-dyed Yarn (100g)</h3>
+      <div class="product-price">$5.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=19" class="view-btn">View</a>
+        <button class="add-btn" data-id="y19" data-name="Hand-dyed Yarn (100g)" data-price="5.99" data-img="Images/yarn-handdyed.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-marigold.jpg" alt="Crochet Marigold Stem, orange">
+      <h3>Crochet Marigold Stem</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=14" class="view-btn">View</a>
+        <button class="add-btn" data-id="f14" data-name="Crochet Marigold Stem" data-price="3.99" data-img="Images/flower-marigold.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-plant-hanger.jpg" alt="Crochet Plant Hanger, macrame style">
+      <h3>Crochet Plant Hanger</h3>
+      <div class="product-price">$7.25</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=13" class="view-btn">View</a>
+        <button class="add-btn" data-id="c13" data-name="Crochet Plant Hanger" data-price="7.25" data-img="Images/crochet-plant-hanger.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-violet.jpg" alt="Violet Mini Bouquet, crochet bouquet">
+      <h3>Violet Mini Bouquet</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=16" class="view-btn">View</a>
+        <button class="add-btn" data-id="f16" data-name="Violet Mini Bouquet" data-price="3.99" data-img="Images/flower-violet.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-butterfly.jpg" alt="Butterfly Brooch, wearable embroidery">
+      <h3>Butterfly Brooch</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=15" class="view-btn">View</a>
+        <button class="add-btn" data-id="e15" data-name="Butterfly Brooch" data-price="4.99" data-img="Images/embroidery-butterfly.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-gradient.jpg" alt="Gradient Color Yarn, 100g, beautiful transitions">
+      <h3>Gradient Color Yarn (100g)</h3>
+      <div class="product-price">$3.99</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=5" class="view-btn">View</a>
+        <button class="add-btn" data-id="y5" data-name="Gradient Color Yarn (100g)" data-price="3.99" data-img="Images/yarn-gradient.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-anemone.jpg" alt="Anemone Flower Stem, vivid">
+      <h3>Anemone Flower Stem</h3>
+      <div class="product-price">$4.50</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=15" class="view-btn">View</a>
+        <button class="add-btn" data-id="f15" data-name="Anemone Flower Stem" data-price="4.50" data-img="Images/flower-anemone.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/Handmade Crochet Doll.webp" alt="Handmade Crochet Doll, detailed plush">
+      <h3>Handmade Crochet Doll</h3>
+      <div class="product-price">$19.00</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=5" class="view-btn">View</a>
+        <button class="add-btn" data-id="c5" data-name="Handmade Crochet Doll" data-price="19.00" data-img="Images/crochet-doll.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-linen.jpg" alt="Linen Blend Yarn, 50g, breathable">
+      <h3>Linen Blend Yarn (50g)</h3>
+      <div class="product-price">$2.50</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=11" class="view-btn">View</a>
+        <button class="add-btn" data-id="y11" data-name="Linen Blend Yarn (50g)" data-price="2.50" data-img="Images/yarn-linen.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-cactus.jpg" alt="Cactus Embroidery Hoop, modern decor">
+      <h3>Cactus Embroidery Hoop</h3>
+      <div class="product-price">$5.75</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=14" class="view-btn">View</a>
+        <button class="add-btn" data-id="e14" data-name="Cactus Embroidery Hoop" data-price="5.75" data-img="Images/embroidery-cactus.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-lily.jpg" alt="Crochet Lily Stem, graceful">
+      <h3>Crochet Lily Stem</h3>
+      <div class="product-price">$4.99</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=9" class="view-btn">View</a>
+        <button class="add-btn" data-id="f9" data-name="Crochet Lily Stem" data-price="4.99" data-img="Images/flower-lily.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/crochet-pouch.webp" alt="Crochet Zipper Pouch, lined">
+      <h3>Crochet Zipper Pouch</h3>
+      <div class="product-price">$5.99</div>
+      <div class="product-btns">
+        <a href="productscrochet.html?id=17" class="view-btn">View</a>
+        <button class="add-btn" data-id="c17" data-name="Crochet Zipper Pouch" data-price="5.99" data-img="Images/crochet-pouch.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/flower-succulent.jpg" alt="Crochet Succulent Pot, mini">
+      <h3>Crochet Succulent Pot</h3>
+      <div class="product-price">$4.75</div>
+      <div class="product-btns">
+        <a href="productsflowers.html?id=18" class="view-btn">View</a>
+        <button class="add-btn" data-id="f18" data-name="Crochet Succulent Pot" data-price="4.75" data-img="Images/flower-succulent.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/embroidery-leaf.webp" alt="Leafy Green Patch, iron-on or sew-on">
+      <h3>Leafy Green Patch</h3>
+      <div class="product-price">$2.99</div>
+      <div class="product-btns">
+        <a href="productsembroidery.html?id=7" class="view-btn">View</a>
+        <button class="add-btn" data-id="e7" data-name="Leafy Green Patch" data-price="2.99" data-img="Images/embroidery-leaf.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Images/yarn-neon.jpg" alt="Neon Acrylic Yarn, 100g, bright colors">
+      <h3>Neon Acrylic Yarn (100g)</h3>
+      <div class="product-price">$2.25</div>
+      <div class="product-btns">
+        <a href="productsyarn.html?id=13" class="view-btn">View</a>
+        <button class="add-btn" data-id="y13" data-name="Neon Acrylic Yarn (100g)" data-price="2.25" data-img="Images/yarn-neon.jpg">Add to Cart</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Back to Top Button with text under the circle -->
+  <div class="back-to-top-wrapper">
+    <button id="backToTop" aria-label="Back to top">
+      <span class="back-to-top-arrow" aria-hidden="true">↑</span>
+    </button>
+    <span class="back-to-top-label">Back to Top</span>
+  </div>
+  <script>
+    // Cart Add-to-Cart Button logic and update nav cart count
+    document.addEventListener('DOMContentLoaded', function(){
+      // Cart count update for nav
+      let cart = {};
+      try { cart = JSON.parse(localStorage.getItem('cart')) || {}; } catch(e) { cart = {}; }
+      let count = 0;
+      Object.values(cart).forEach(item => count += item.qty || 0);
+      let countDisplay = count > 999 ? "999+" : count;
+      document.querySelectorAll('#cart-count').forEach(e => e.textContent = countDisplay);
+
+      // Add to cart button logic
+      document.querySelectorAll('.add-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.getAttribute('data-id');
+          const name = this.getAttribute('data-name');
+          const price = parseFloat(this.getAttribute('data-price'));
+          const img = this.getAttribute('data-img');
+          let cart = {};
+          try {
+            cart = JSON.parse(localStorage.getItem('cart')) || {};
+          } catch(e) { cart = {}; }
+          if (!cart[id]) {
+            cart[id] = {
+              id,
+              name,
+              price,
+              img,
+              qty: 0
+            };
+          }
+          cart[id].qty += 1;
+          localStorage.setItem('cart', JSON.stringify(cart));
+          // Redirect to cart.html with product id as a parameter
+          window.location.href = `cart.html?id=${id}`;
+        });
+      });
+
+      // Back to Top Button Functionality
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+          if (window.scrollY > 250) {
+              btn.classList.add('visible');
+          } else {
+              btn.classList.remove('visible');
+          }
+      });
+      btn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+  <style>
+    .shop-container { max-width: 1200px; margin: 40px auto; padding: 0 2vw; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      padding: 18px 14px 20px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.2s;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    }
+    .product-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 9px;
+      margin-bottom: 12px;
+      background: #f8f8f8;
+    }
+    .product-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.07rem;
+      margin: 8px 0 6px 0;
+      color: #333;
+      min-height: 36px;
+      line-height: 1.1;
+    }
+    .product-card .product-price {
+      color: #b77c46;
+      font-weight: bold;
+      font-size: 1.09rem;
+      margin-bottom: 10px;
+    }
+    .product-card .product-btns {
+      margin-top: auto;
+      display: flex;
+      gap: 8px;
+      width: 100%;
+      justify-content: center;
+    }
+    .product-card .view-btn, .product-card .add-btn {
+      background: #b77c46;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 7px 18px;
+      font-size: .98rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+    }
+    .product-card .add-btn { background: #444; }
+    .product-card .view-btn:hover { background: #a5642a; }
+    .product-card .add-btn:hover { background: #222; }
+    .shop-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      text-align: center;
+      margin-top: 40px;
+      color: #b77c46;
+    }
+  </style>
+</body>
+</html>

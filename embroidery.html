@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Responsive and SEO Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover hand-embroidered hoops, patches, and unique stitched art at Felix Fiberworks. Perfect for gifts and home decor.">
+    <title>Embroidery & Stitching Shop | Felix Fiberworks</title>
+    <link rel="stylesheet" href="categories.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav aria-label="Main navigation">
+    <div class="logo">Felix Fiberworks</div>
+    <div class="header-right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Categories.html">Categories</a></li>
+        <li><a href="Shop.html">Products</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <a href="cart.html" class="nav-cart" aria-label="View cart">🛒 <span id="cart-count">0</span></a>
+    <a href="CustomOrder.html" class="nav-btn">Custom Orders</a>
+  </nav>
+  <main>
+    <!-- Hero Section: Title & Description for Embroidery Category -->
+    <section class="heros">
+      <div class="hero-content">
+        <h1 class="hero-title">🪡 Embroidery & Stitching Shop</h1>
+        <p class="hero-desc">Explore our hand-stitched embroidery hoops, wall art, patches, and accessories. Every piece is crafted with intricate needlework and creative flair!</p>
+      </div>
+    </section>
+    <!-- Product Grid Section: Affordable embroidery products, each with image, name, description, price, and View More button -->
+    <section class="shop-section">
+      <h2 class="section-title">Embroidery & Stitching Products</h2>
+      <div class="product-grid">
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/Embroidery1.jpg" alt="Floral Embroidery Hoop, hand-stitched wall art" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Floral Embroidery Hoop</h3>
+          <p>Hand-stitched flowers on fabric, framed in a 6&quot; hoop. Perfect wall decor.</p>
+          <span class="price">$9.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=1">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e1" data-name="Floral Embroidery Hoop" data-price="9.99" data-img="Images/Embroidery1.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-mini-hoop.jpg" alt="Mini Embroidery Hoop Keychain" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Mini Embroidery Hoop Keychain</h3>
+          <p>Petite hoop with delicate hand embroidery, ready for your keys or bag.</p>
+          <span class="price">$3.50</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=2">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e2" data-name="Mini Embroidery Hoop Keychain" data-price="3.50" data-img="Images/embroidery-mini-hoop.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-landscape.jpg" alt="Landscape Embroidery Art, scenic hoop" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Landscape Embroidery Art</h3>
+          <p>Scenic stitched landscape in a circular hoop, adds calm to any space.</p>
+          <span class="price">$12.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=3">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e3" data-name="Landscape Embroidery Art" data-price="12.99" data-img="Images/embroidery-landscape.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-monogram.jpg" alt="Custom Monogram Patch, hand-embroidered" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Custom Monogram Patch</h3>
+          <p>Personalized hand-embroidered patch for jackets, bags, or gifts.</p>
+          <span class="price">$4.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=4">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e4" data-name="Custom Monogram Patch" data-price="4.99" data-img="Images/embroidery-monogram.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-wildflower.jpg" alt="Wildflower Bouquet Hoop, linen embroidery" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Wildflower Bouquet Hoop</h3>
+          <p>Colorful wildflowers stitched onto natural linen, 5&quot; hoop.</p>
+          <span class="price">$7.75</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=5">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e5" data-name="Wildflower Bouquet Hoop" data-price="7.75" data-img="Images/embroidery-wildflower.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-cats.jpg" alt="Cat Lovers Embroidery, stitched cats" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Cat Lovers Embroidery</h3>
+          <p>Adorable stitched cats, perfect gift for feline fans.</p>
+          <span class="price">$6.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=6">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e6" data-name="Cat Lovers Embroidery" data-price="6.99" data-img="Images/embroidery-cats.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-leaf.webp" alt="Leafy Green Patch, iron-on or sew-on" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Leafy Green Patch</h3>
+          <p>Hand-embroidered leaf patch, iron-on or sew-on for easy style.</p>
+          <span class="price">$2.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=7">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e7" data-name="Leafy Green Patch" data-price="2.99" data-img="Images/embroidery-leaf.webp">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-quote.jpg" alt="Inspirational Quote Hoop, stitched saying" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Inspirational Quote Hoop</h3>
+          <p>Choose your favorite saying, beautifully stitched in a 4&quot; hoop.</p>
+          <span class="price">$6.50</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=8">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e8" data-name="Inspirational Quote Hoop" data-price="6.50" data-img="Images/embroidery-quote.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-mushroom.jpg" alt="Mushroom Forest Mini Art, tiny hoop" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Mushroom Forest Mini Art</h3>
+          <p>Tiny hoop featuring hand-stitched mushrooms and forest floor details.</p>
+          <span class="price">$4.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=9">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e9" data-name="Mushroom Forest Mini Art" data-price="4.99" data-img="Images/embroidery-mushroom.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-fox.jpg" alt="Fox Embroidery Patch, iron-on" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Fox Embroidery Patch</h3>
+          <p>Cute fox, hand-stitched as an iron-on patch for clothing or accessories.</p>
+          <span class="price">$3.50</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=10">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e10" data-name="Fox Embroidery Patch" data-price="3.50" data-img="Images/embroidery-fox.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-sampler.jpg" alt="Beginner Sampler Hoop, embroidery basics" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Beginner Sampler Hoop</h3>
+          <p>Learn embroidery basics with this cheerful sampler design, 6&quot; hoop.</p>
+          <span class="price">$7.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=11">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e11" data-name="Beginner Sampler Hoop" data-price="7.99" data-img="Images/embroidery-sampler.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-bird.jpg" alt="Songbird Wall Hanging, hand stitched" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Songbird Wall Hanging</h3>
+          <p>Charming songbird stitched on linen, ready to hang.</p>
+          <span class="price">$6.75</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=12">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e12" data-name="Songbird Wall Hanging" data-price="6.75" data-img="Images/embroidery-bird.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-rainbow.jpg" alt="Rainbow Pocket Patch, hand stitched" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Rainbow Pocket Patch</h3>
+          <p>Bright rainbow, hand-stitched and perfect for pockets or bags.</p>
+          <span class="price">$2.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=13">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e13" data-name="Rainbow Pocket Patch" data-price="2.99" data-img="Images/embroidery-rainbow.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-cactus.jpg" alt="Cactus Embroidery Hoop, modern decor" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Cactus Embroidery Hoop</h3>
+          <p>Fun cactus stitched in a bright pot, 4&quot; hoop for a modern touch.</p>
+          <span class="price">$5.75</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=14">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e14" data-name="Cactus Embroidery Hoop" data-price="5.75" data-img="Images/embroidery-cactus.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-butterfly.jpg" alt="Butterfly Brooch, wearable embroidery" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Butterfly Brooch</h3>
+          <p>Wearable art! Hand-stitched butterfly brooch, lightweight and colorful.</p>
+          <span class="price">$4.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=15">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e15" data-name="Butterfly Brooch" data-price="4.99" data-img="Images/embroidery-butterfly.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-moon.jpg" alt="Moon & Stars Mini Hoop, celestial" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Moon & Stars Mini Hoop</h3>
+          <p>Celestial scene stitched in a mini hoop, dreamy decor for your room.</p>
+          <span class="price">$6.25</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=16">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e16" data-name="Moon & Stars Mini Hoop" data-price="6.25" data-img="Images/embroidery-moon.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-avocado.jpg" alt="Avocado Iron-On Patch, trendy" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Avocado Iron-On Patch</h3>
+          <p>Trendy hand-embroidered avocado, easy to add to jackets or totes.</p>
+          <span class="price">$2.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=17">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e17" data-name="Avocado Iron-On Patch" data-price="2.99" data-img="Images/embroidery-avocado.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-fox-hoop.jpg" alt="Fox in the Woods Hoop, woodland embroidery" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Fox in the Woods Hoop</h3>
+          <p>Charming woodland fox stitched in a 5&quot; hoop, cozy and cute.</p>
+          <span class="price">$7.99</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=18">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e18" data-name="Fox in the Woods Hoop" data-price="7.99" data-img="Images/embroidery-fox-hoop.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-succulent.jpg" alt="Succulent Garden Patch, embroidered" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Succulent Garden Patch</h3>
+          <p>Hand-embroidered succulents, iron or sew onto your favorite gear.</p>
+          <span class="price">$3.50</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=19">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e19" data-name="Succulent Garden Patch" data-price="3.50" data-img="Images/embroidery-succulent.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card product-pop">
+        <div class="product-img-wrap">
+          <img src="Images/embroidery-catflower.jpg" alt="Cat & Flowers Hoop, stitched cat" class="product-img">
+        </div>
+        <div class="product-info">
+          <h3>Cat & Flowers Hoop</h3>
+          <p>Sweet cat surrounded by stitched flowers, framed in a 6&quot; hoop.</p>
+          <span class="price">$8.50</span>
+          <div class="product-btn-row">
+            <a class="view-more-btn btn-secondary" href="productsembroidery.html?id=20">View More</a>
+            <button class="view-more-btn btn-secondary add-btn" data-id="e20" data-name="Cat & Flowers Hoop" data-price="8.50" data-img="Images/embroidery-catflower.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- End Products -->
+    </div>
+    </section>
+  </main>
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Back to Top Button: appears after scroll, accessible and mobile-friendly -->
+  <div class="back-to-top-wrapper">
+    <button id="backToTop" aria-label="Back to top">
+      <span class="back-to-top-arrow" aria-hidden="true">↑</span>
+    </button>
+    <span class="back-to-top-label">Back to Top</span>
+  </div>
+ <script>
+    // Cart Add-to-Cart Button logic and update nav cart count
+    document.addEventListener('DOMContentLoaded', function(){
+      // Cart count update for nav
+      let cart = {};
+      try { cart = JSON.parse(localStorage.getItem('cart')) || {}; } catch(e) { cart = {}; }
+      let count = 0;
+      Object.values(cart).forEach(item => count += item.qty || 0);
+      let countDisplay = count > 999 ? "999+" : count;
+      document.querySelectorAll('#cart-count').forEach(e => e.textContent = countDisplay);
+
+      // Add to cart button logic
+      document.querySelectorAll('.add-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.getAttribute('data-id');
+          const name = this.getAttribute('data-name');
+          const price = parseFloat(this.getAttribute('data-price'));
+          const img = this.getAttribute('data-img');
+          let cart = {};
+          try {
+            cart = JSON.parse(localStorage.getItem('cart')) || {};
+          } catch(e) { cart = {}; }
+          if (!cart[id]) {
+            cart[id] = {
+              id,
+              name,
+              price,
+              img,
+              qty: 0
+            };
+          }
+          cart[id].qty += 1;
+          localStorage.setItem('cart', JSON.stringify(cart));
+          // Redirect to cart.html with product id as a parameter
+          window.location.href = `cart.html?id=${id}`;
+        });
+      });
+
+      // Back to Top Button Functionality
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+          if (window.scrollY > 250) {
+              btn.classList.add('visible');
+          } else {
+              btn.classList.remove('visible');
+          }
+      });
+      btn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+  <style>
+    /* --- Back to Top Button: fixed, with label below, responsive --- */
+    .back-to-top-wrapper {
+        position: fixed;
+        right: 18px;
+        bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 199;
+        pointer-events: none;
+    }
+    #backToTop {
+        width: 48px;
+        height: 48px;
+        background: var(--secondary, #bdb2ff);
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: bold;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(.4,0,.2,1), background 0.2s, color 0.2s, transform 0.3s cubic-bezier(.4,0,.2,1);
+        transform: translateY(30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+    .back-to-top-arrow {
+        color: #000;
+        font-size: 1.6em;
+        line-height: 1;
+    }
+    .back-to-top-label {
+        margin-top: 2px;
+        font-size: 0.93rem;
+        color: #000;
+        font-weight: 500;
+        background: rgba(255,255,255,0.88);
+        border-radius: 6px;
+        padding: 1px 8px;
+        user-select: none;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    #backToTop.visible + .back-to-top-label {
+        opacity: 1;
+    }
+    #backToTop:focus .back-to-top-label,
+    #backToTop:hover .back-to-top-label {
+        color: var(--primary, #e2c290);
+    }
+    #backToTop:focus, #backToTop:hover {
+        background: var(--primary, #e2c290);
+        color: #000;
+        outline: none;
+        box-shadow: 0 6px 16px #e2c29044;
+    }
+    @media (max-width: 600px) {
+        .back-to-top-wrapper {
+            right: 8px;
+            bottom: 18px;
+        }
+        #backToTop {
+            width: 36px;
+            height: 36px;
+            font-size: 1.2rem;
+        }
+        .back-to-top-label {
+            font-size: 0.8rem;
+            padding: 0 5px;
+        }
+    }
+  </style>
+</body>
+</html>

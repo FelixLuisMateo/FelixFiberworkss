@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Order | Felix Fiberworks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+  <script src="cart.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">Felix Fiberworks</div>
+        <div class="header-right">
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Categories.html">Categories</a></li>
+        <li><a href="Shop.html">Products</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        </ul>
+        </div>
+        <a href="cart.html" class="nav-cart">🛒 <span id="cart-count">0</span></a>
+        <a href="CustomOrder.html" class="nav-btn" >Custom Orders</a>
+    </nav>
+  <div class="custom-order-container">
+    <img src="Images/CustomOrder.jpg" alt="Custom Yarn Order" class="custom-order-photo" />
+    <h1>Custom Orders</h1>
+    <p>
+      Want something truly unique? From plushies to pouches, we can make (almost) anything your heart desires.<br>
+      Fill out this form with as much detail as you like, and we’ll get back to you with a quote and possibilities!
+    </p>
+    <form class="custom-order-form" enctype="multipart/form-data" method="post" action="#">
+      <label for="name">Your Name *</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Your Email *</label>
+      <input type="email" id="email" name="email" required />
+
+      <div class="form-row">
+        <div>
+          <label for="product-type">Product Type *</label>
+          <select id="product-type" name="product-type" required>
+            <option value="">Select one…</option>
+            <option value="Plushie">Plushie</option>
+            <option value="Keychain">Keychain</option>
+            <option value="Pouch/Bag">Pouch/Bag</option>
+            <option value="Accessory">Accessory (e.g. earrings, brooch)</option>
+            <option value="Home Decor">Home Decor</option>
+            <option value="Wearable">Wearable (e.g. scarf, hat)</option>
+            <option value="Pet Accessory">Pet Accessory</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="size">Size *</label>
+          <select id="size" name="size" required>
+            <option value="">Select…</option>
+            <!-- Options will be populated by JS -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Keychain-specific options -->
+      <div id="keychain-details" class="type-details">
+        <label>Keychain Style</label>
+        <select name="keychain-style">
+          <option value="">Select…</option>
+          <option>Plush/Figure</option>
+          <option>Name/Letter</option>
+          <option>Animal</option>
+          <option>Fruit/Vegetable</option>
+          <option>Mini Accessory (hat, bag, etc.)</option>
+          <option>Other (describe below)</option>
+        </select>
+        <input type="text" name="keychain-style-other" placeholder="Describe other keychain style">
+
+        <label>Keychain Hardware</label>
+        <select name="keychain-hardware">
+          <option value="">Select…</option>
+          <option>Standard Split Ring</option>
+          <option>Lobster Clasp</option>
+          <option>Ball Chain</option>
+          <option>Carabiner</option>
+          <option>Other (describe below)</option>
+        </select>
+        <input type="text" name="keychain-hardware-other" placeholder="Describe other hardware type">
+
+        <label>Keychain Add-ons</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="keychain-addons[]" value="Tassel">Tassel</label>
+          <label><input type="checkbox" name="keychain-addons[]" value="Mini Bell">Mini Bell</label>
+          <label><input type="checkbox" name="keychain-addons[]" value="Beads">Beads</label>
+          <label><input type="checkbox" name="keychain-addons[]" value="Letter Beads">Letter Beads</label>
+          <label><input type="checkbox" name="keychain-addons[]" value="Charm">Charm</label>
+          <label><input type="checkbox" name="keychain-addons[]" value="Other">Other (describe below)</label>
+        </div>
+        <input type="text" name="keychain-addons-other" placeholder="Describe other keychain add-ons">
+        <label>Personalization</label>
+        <input type="text" name="keychain-personalization" placeholder="Name, initials, special message, etc.">
+      </div>
+
+      <!-- Accessory-specific options -->
+      <div id="accessory-details" class="type-details">
+        <label>Accessory Type</label>
+        <select name="accessory-type">
+          <option value="">Select…</option>
+          <option>Earrings</option>
+          <option>Brooch/Pin</option>
+          <option>Bracelet</option>
+          <option>Anklet</option>
+          <option>Hair Clip/Scrunchie</option>
+          <option>Bag Charm</option>
+          <option>Phone Charm</option>
+          <option>Other (describe below)</option>
+        </select>
+        <input type="text" name="accessory-type-other" placeholder="Describe other accessory type">
+
+        <label>Attachment/Clasp Type</label>
+        <select name="attachment-type">
+          <option value="">Select…</option>
+          <option>Ear Hook</option>
+          <option>Stud</option>
+          <option>Alligator Clip</option>
+          <option>Brooch Pin</option>
+          <option>Keyring</option>
+          <option>Elastic Band</option>
+          <option>Other</option>
+        </select>
+        <input type="text" name="attachment-other" placeholder="Describe other attachment/clasp">
+
+        <label>Accessory Add-ons</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="accessory-addons[]" value="Charms">Charms</label>
+          <label><input type="checkbox" name="accessory-addons[]" value="Beads">Beads</label>
+          <label><input type="checkbox" name="accessory-addons[]" value="Tassel">Tassel</label>
+          <label><input type="checkbox" name="accessory-addons[]" value="Mini Bell">Mini Bell</label>
+          <label><input type="checkbox" name="accessory-addons[]" value="Letter Beads">Letter Beads</label>
+          <label><input type="checkbox" name="accessory-addons[]" value="Other">Other (describe below)</label>
+        </div>
+        <input type="text" name="accessory-addons-other" placeholder="Describe other accessory add-ons">
+      </div>
+      <!-- Wearable-specific options -->
+      <div id="wearable-details" class="type-details">
+        <label>Wearable Type</label>
+        <select name="wearable-type">
+          <option value="">Select…</option>
+          <option>Scarf</option>
+          <option>Hat/Beanie</option>
+          <option>Mittens/Gloves</option>
+          <option>Headband</option>
+          <option>Socks</option>
+          <option>Sweater/Cardigan</option>
+          <option>Shawl/Wrap</option>
+          <option>Other (describe below)</option>
+        </select>
+        <input type="text" name="wearable-type-other" placeholder="Describe other wearable item">
+
+        <label>Size Preference</label>
+        <input type="text" name="wearable-size-details" placeholder="Size (S/M/L/XL or custom measurements)">
+        <label>Closure/Style</label>
+        <input type="text" name="wearable-closure" placeholder="Button, zipper, pullover, etc.">
+        <label>Wearable Add-ons</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="wearable-addons[]" value="Pockets">Pockets</label>
+          <label><input type="checkbox" name="wearable-addons[]" value="Tassels/Fringe">Tassels/Fringe</label>
+          <label><input type="checkbox" name="wearable-addons[]" value="Pom Poms">Pom Poms</label>
+          <label><input type="checkbox" name="wearable-addons[]" value="Hood">Hood</label>
+          <label><input type="checkbox" name="wearable-addons[]" value="Other">Other (describe below)</label>
+        </div>
+        <input type="text" name="wearable-addons-other" placeholder="Describe other wearable add-ons">
+      </div>
+      <!-- Home Decor-specific options -->
+      <div id="homedecor-details" class="type-details">
+        <label>Home Decor Type</label>
+        <select name="homedecor-type">
+          <option value="">Select…</option>
+          <option>Pillow/Cushion</option>
+          <option>Blanket/Throw</option>
+          <option>Wall Hanging</option>
+          <option>Plant Hanger</option>
+          <option>Rug/Mat</option>
+          <option>Basket/Organizer</option>
+          <option>Coaster/Placemat</option>
+          <option>Other (describe below)</option>
+        </select>
+        <input type="text" name="homedecor-type-other" placeholder="Describe other home decor item">
+
+        <label>Shape</label>
+        <input type="text" name="homedecor-shape" placeholder="e.g. round, square, rectangle, custom shape">
+        <label>Dimensions</label>
+        <input type="text" name="homedecor-dimensions" placeholder="Length x Width or Diameter">
+        <label>Hanging/Placement Details</label>
+        <input type="text" name="homedecor-placement" placeholder="Wall, table, floor, etc.">
+        <label>Home Decor Add-ons</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="homedecor-addons[]" value="Tassels/Fringe">Tassels/Fringe</label>
+          <label><input type="checkbox" name="homedecor-addons[]" value="Buttons">Buttons</label>
+          <label><input type="checkbox" name="homedecor-addons[]" value="Embroidery">Embroidery</label>
+          <label><input type="checkbox" name="homedecor-addons[]" value="Other">Other (describe below)</label>
+        </div>
+        <input type="text" name="homedecor-addons-other" placeholder="Describe other home decor add-ons">
+      </div>
+      <!-- Other-specific options -->
+      <div id="other-details" class="type-details">
+        <label>Please describe your custom idea!</label>
+        <textarea name="other-description" placeholder="Tell us everything about your unique request."></textarea>
+        <label>What would you like this item to be used for?</label>
+        <input type="text" name="other-purpose" placeholder="Gift, decor, personal, event, etc.">
+        <label>Preferred Style or Reference</label>
+        <input type="text" name="other-style" placeholder="Modern, boho, classic, kawaii, etc.">
+        <label>Add-ons or Special Requests</label>
+        <input type="text" name="other-addons" placeholder="Describe any add-ons, features, or details">
+      </div>
+      <!-- End dynamic details -->
+
+      <label>Preferred Colors <span class="small-note">(select all that apply or write custom colors below)</span></label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="colors[]" value="Red">Red</label>
+        <label><input type="checkbox" name="colors[]" value="Pink">Pink</label>
+        <label><input type="checkbox" name="colors[]" value="Yellow">Yellow</label>
+        <label><input type="checkbox" name="colors[]" value="Green">Green</label>
+        <label><input type="checkbox" name="colors[]" value="Blue">Blue</label>
+        <label><input type="checkbox" name="colors[]" value="Purple">Purple</label>
+        <label><input type="checkbox" name="colors[]" value="Brown">Brown</label>
+        <label><input type="checkbox" name="colors[]" value="Beige">Beige</label>
+        <label><input type="checkbox" name="colors[]" value="White">White</label>
+        <label><input type="checkbox" name="colors[]" value="Black">Black</label>
+        <label><input type="checkbox" name="colors[]" value="Rainbow">Rainbow</label>
+        <label><input type="checkbox" name="colors[]" value="Pastel">Pastel</label>
+        <label><input type="checkbox" name="colors[]" value="Custom">Custom (describe below)</label>
+      </div>
+      <input type="text" name="custom-colors" placeholder="Describe custom colors, shades, or combos" />
+
+      <label for="material">Material/Yarn Preference</label>
+      <select id="material" name="material">
+        <option value="">No preference</option>
+        <option>Cotton</option>
+        <option>Acrylic</option>
+        <option>Velvet/Chenille</option>
+        <option>Wool/Alpaca</option>
+        <option>Eco/Bamboo</option>
+        <option>Mix</option>
+        <option>Other (describe below)</option>
+      </select>
+      <input type="text" name="material-other" placeholder="Other material, allergies, vegan, etc.">
+
+      <label>Personalization</label>
+      <input type="text" name="personalization" placeholder="Name, initials, special message, etc.">
+
+      <label>Add-ons & Features</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="addons[]" value="Keychain Attachment">Keychain Attachment</label>
+        <label><input type="checkbox" name="addons[]" value="Safety Eyes">Safety Eyes</label>
+        <label><input type="checkbox" name="addons[]" value="Rattle Insert">Rattle Insert (for babies)</label>
+        <label><input type="checkbox" name="addons[]" value="Squeaker">Squeaker (for pets)</label>
+        <label><input type="checkbox" name="addons[]" value="Sound Box">Sound Box</label>
+        <label><input type="checkbox" name="addons[]" value="Bell">Bell</label>
+        <label><input type="checkbox" name="addons[]" value="Gift Wrapping">Gift Wrapping</label>
+        <label><input type="checkbox" name="addons[]" value="Custom Embroidery">Custom Embroidery</label>
+        <label><input type="checkbox" name="addons[]" value="Other">Other (describe below)</label>
+      </div>
+      <input type="text" name="addons-other" placeholder="Describe any other features or add-ons">
+
+      <label for="inspiration-img">Inspiration Image <span class="small-note">(optional)</span></label>
+      <input type="file" id="inspiration-img" name="inspiration-img" accept="image/*">
+
+      <div class="form-row">
+        <div>
+          <label for="deadline">Deadline / Needed By</label>
+          <input type="date" id="deadline" name="deadline">
+        </div>
+        <div>
+          <label for="rush">Is this a rush order?</label>
+          <select id="rush" name="rush">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="budget">Budget (optional)</label>
+      <input type="number" id="budget" name="budget" min="0" placeholder="Your ideal budget (USD)">
+
+      <label for="shipping">Shipping Preference</label>
+      <select id="shipping" name="shipping">
+        <option>Standard</option>
+        <option>Express</option>
+        <option>Pick-up (if local)</option>
+        <option>Gift to someone else</option>
+        <option>Other (describe below)</option>
+      </select>
+      <input type="text" name="shipping-other" placeholder="Other shipping details or instructions">
+
+      <label for="details">Anything Else? (Describe your dream creation!)</label>
+      <textarea id="details" name="details" placeholder="Tell us about your idea, style, inspiration, or special requests."></textarea>
+
+      <button type="submit">Send Custom Order Request</button>
+    </form>
+  </div>
+  <script>
+    // Product type to allowed size mapping
+    const sizeOptions = {
+      "Plushie": [
+        "Small (up to 10cm/4in)",
+        "Medium (10-20cm/4-8in)",
+        "Large (20-30cm/8-12in)",
+        "Extra Large (30cm+/12in+)",
+        "Custom Size (describe below)"
+      ],
+      "Keychain": [
+        "Mini / Keychain",
+        "Small (up to 10cm/4in)",
+        "Medium (10-20cm/4-8in)"
+      ],
+      "Pouch/Bag": [
+        "Small (up to 10cm/4in)",
+        "Medium (10-20cm/4-8in)",
+        "Large (20-30cm/8-12in)",
+        "Extra Large (30cm+/12in+)",
+        "Custom Size (describe below)"
+      ],
+      "Accessory": [
+        "Mini / Keychain",
+        "Small (up to 10cm/4in)",
+        "Medium (10-20cm/4-8in)",
+        "Custom Size (describe below)"
+      ],
+      "Home Decor": [
+        "Medium (10-20cm/4-8in)",
+        "Large (20-30cm/8-12in)",
+        "Extra Large (30cm+/12in+)",
+        "Custom Size (describe below)"
+      ],
+      "Wearable": [
+        "Small (up to 10cm/4in)",
+        "Medium (10-20cm/4-8in)",
+        "Large (20-30cm/8-12in)",
+        "Extra Large (30cm+/12in+)",
+        "Custom Size (describe below)"
+      ],
+      "Pet Accessory": [
+        "Mini / Keychain",
+        "Small (up to 10cm/4in)",
+        "Medium (10-20cm/4-8in)",
+        "Custom Size (describe below)"
+      ],
+      "Other": [
+        "Mini / Keychain",
+        "Small (up to 10cm/4in)",
+        "Medium (10-20cm/4-8in)",
+        "Large (20-30cm/8-12in)",
+        "Extra Large (30cm+/12in+)",
+        "Custom Size (describe below)"
+      ]
+    };
+
+    const detailSections = {
+      "Keychain": "keychain-details",
+      "Accessory": "accessory-details",
+      "Wearable": "wearable-details",
+      "Home Decor": "homedecor-details",
+      "Other": "other-details"
+    };
+
+    function populateSizeOptions(type) {
+      const sizeSelect = document.getElementById('size');
+      sizeSelect.innerHTML = '<option value="">Select…</option>';
+      if (type && sizeOptions[type]) {
+        sizeOptions[type].forEach(opt => {
+          const option = document.createElement('option');
+          option.value = opt;
+          option.textContent = opt;
+          sizeSelect.appendChild(option);
+        });
+      }
+    }
+
+    function showTypeDetails(type) {
+      // Hide all
+      Object.values(detailSections).forEach(id => {
+        const div = document.getElementById(id);
+        if (div) div.classList.remove('active');
+      });
+      // Show selected
+      if (type && detailSections[type]) {
+        const div = document.getElementById(detailSections[type]);
+        if (div) div.classList.add('active');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const productTypeSelect = document.getElementById('product-type');
+      const sizeSelect = document.getElementById('size');
+      // Set default size options if a product type is selected on load
+      populateSizeOptions(productTypeSelect.value);
+      showTypeDetails(productTypeSelect.value);
+
+      productTypeSelect.addEventListener('change', function() {
+        populateSizeOptions(this.value);
+        sizeSelect.value = "";
+        showTypeDetails(this.value);
+      });
+    });
+  </script>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+  <style>
+    body {
+      background: #fff7ec;
+    }
+    .custom-order-container {
+      max-width: 850px;
+      margin: 50px auto 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 28px;
+      box-shadow: 0 2px 24px rgba(183,124,70,0.10);
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+    .custom-order-container h1 {
+      font-family: 'Playfair Display', serif;
+      color: #b77c46;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+    .custom-order-container p {
+      color: #75593b;
+      font-size: 1.11rem;
+      margin-bottom: 30px;
+    }
+    .custom-order-photo {
+      width: 145px;
+      max-width: 100%;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 12px rgba(183,124,70,0.13);
+      object-fit: cover;
+      height: auto;
+    }
+    .custom-order-form {
+      max-width: 540px;
+      margin: 0 auto;
+      text-align: left;
+      background: #faf1e5;
+      border-radius: 14px;
+      padding: 26px 24px 18px 24px;
+      box-shadow: 0 1px 8px rgba(183,124,70,0.06);
+    }
+    .custom-order-form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      color: #b77c46;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .custom-order-form input,
+    .custom-order-form select,
+    .custom-order-form textarea {
+      width: 100%;
+      padding: 7px 9px;
+      border-radius: 4px;
+      border: 1px solid #e4caa7;
+      background: #fff;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .custom-order-form textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .custom-order-form .form-row {
+      display: flex;
+      gap: 12px;
+    }
+    .custom-order-form .form-row > div {
+      flex: 1;
+    }
+    /* ---- IMPROVED CHECKBOX ALIGNMENT ---- */
+    .custom-order-form .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 18px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .custom-order-form .checkbox-group label {
+      font-weight: 500;
+      color: #775c38;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      white-space: nowrap;
+      /* Add the following to fully left-align the box: */
+      justify-content: flex-start;
+    }
+    .custom-order-form .checkbox-group input[type="checkbox"] {
+      margin: 0;
+      min-width: 18px;
+      min-height: 18px;
+      accent-color: #b77c46;
+      /* Remove default spacing that can shift boxes */
+      vertical-align: middle;
+    }
+    /* ---- END IMPROVED CHECKBOX ALIGNMENT ---- */
+    .custom-order-form .upload-group {
+      margin-top: 10px;
+      margin-bottom: 18px;
+    }
+    .custom-order-form button {
+      display: block;
+      width: 100%;
+      margin-top: 21px;
+      background: #b77c46;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 0;
+      font-size: 1.13rem;
+      font-family: inherit;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .custom-order-form button:hover {
+      background: #a5642a;
+    }
+    .small-note {
+      font-size: 0.99rem;
+      color: #a78b64;
+      margin-bottom: 0;
+      margin-top: -9px;
+      font-style: italic;
+    }
+    /* Dynamic detail sections */
+    .type-details {
+      display: none;
+      background: #fff5e6;
+      border: 1px dashed #b77c46;
+      border-radius: 8px;
+      padding: 10px 14px 4px 14px;
+      margin: 8px 0 0 0;
+      transition: all 0.3s;
+    }
+    .type-details.active {
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .custom-order-container { padding: 16px 4vw; }
+      .custom-order-form { padding: 12px 4px; }
+      .custom-order-container h1 { font-size: 2rem; }
+      .custom-order-form .form-row { flex-direction: column; gap: 0; }
+      .custom-order-form .checkbox-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</body>
+</html>

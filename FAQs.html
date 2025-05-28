@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Frequently Asked Questions for Felix Fiberworks: answers about products, orders, materials, shipping, and more.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Felix Fiberworks</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --faq-primary: #bdb2ff;
+        --faq-secondary: #ffe066;
+        --faq-bg: #f6f4ff;
+        --faq-card: #fffdfa;
+        --faq-question: #6f42c1;
+        --faq-ans: #50412a;
+      }
+      .faq-hero {
+        background: linear-gradient(120deg, #ffe0661a 0%, #bdb2ff13 100%);
+        text-align: center;
+        padding: 3rem 1rem 2rem 1rem;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -1.5rem;
+        position: relative;
+      }
+      .faq-hero h1 {
+        font-family: var(--font-head);
+        color: var(--faq-question);
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin-bottom: 0.7rem;
+        margin-top: -10px;
+      }
+      .faq-hero .glow-badge {
+        background: var(--faq-primary);
+        color: #fff;
+        border-radius: 20px;
+        padding: 0.45rem 1.2rem;
+        font-weight: bold;
+        font-size: 1rem;
+        display: inline-block;
+        box-shadow: 0 2px 8px #bdb2ff33;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.8rem;
+      }
+      .faq-hero p {
+        color: #a69c90;
+        font-size: 1.18rem;
+        max-width: 520px;
+        margin: 0 auto 1.4rem auto;
+        margin-bottom: 40px;
+      }
+      .faq-section {
+        max-width: 940px;
+        margin: 0 auto 2.5rem auto;
+        background: var(--faq-bg);
+        border-radius: 20px;
+        box-shadow: 0 6px 24px #bdb2ff13;
+        padding: 2.3rem 1.3rem 2.1rem 1.3rem;
+      }
+      .faq-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .faq-item {
+        background: var(--faq-card);
+        border-radius: 15px;
+        box-shadow: 0 2px 10px #e2c29016;
+        margin-bottom: 1.2rem;
+        transition: box-shadow 0.18s, transform 0.16s;
+        overflow: hidden;
+      }
+      .faq-item.open {
+        box-shadow: 0 8px 30px #bdb2ff22;
+        transform: scale(1.01);
+      }
+      .faq-question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: var(--font-head);
+        font-size: 1.18rem;
+        color: var(--faq-question);
+        font-weight: 800;
+        cursor: pointer;
+        padding: 1.15rem 1.2rem 1.1rem 1.2rem;
+        transition: background .18s;
+        border-bottom: 1px dashed #e2c29033;
+      }
+      .faq-toggle {
+        font-size: 1.8em;
+        color: var(--faq-secondary);
+        transition: transform 0.2s;
+      }
+      .faq-item.open .faq-toggle {
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        color: var(--faq-ans);
+        font-family: var(--font-body);
+        font-size: 1.09rem;
+        padding: 0.95rem 1.7rem 1.05rem 1.7rem;
+        background: #fff6e0;
+        animation: fadeInFAQ 0.3s;
+      }
+      @keyframes fadeInFAQ {
+        from { opacity: 0; transform: translateY(-12px);}
+        to { opacity: 1; transform: translateY(0);}
+      }
+      .faq-cats {
+        text-align: center;
+        margin-bottom: 2.2rem;
+        display: flex;
+        gap: 1.2em;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .faq-cat-btn {
+        background: #fffdfa;
+        border: 2px solid #e2c29033;
+        color: var(--faq-question);
+        border-radius: 18px;
+        font-weight: 600;
+        font-size: 1em;
+        padding: 0.35em 1.3em;
+        margin-bottom: 0.2em;
+        cursor: pointer;
+        transition: background 0.18s, color 0.18s, border 0.18s;
+        outline: none;
+      }
+      .faq-cat-btn.selected, .faq-cat-btn:focus {
+        background: var(--faq-secondary);
+        color: #fff;
+        border-color: var(--faq-secondary);
+      }
+      @media (max-width: 900px) {
+        .faq-section {
+          padding: 1.3rem 0.5rem 1.3rem 0.5rem;
+        }
+        .faq-answer {
+          padding: 0.9rem 1rem 1rem 1rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .faq-hero h1 { font-size: 1.2rem; }
+        .faq-hero p { font-size: 0.96rem; }
+        .faq-section { padding: 1rem 0.2rem 1rem 0.2rem;}
+        .faq-question { font-size: 1.04rem; padding: 1rem 0.7rem 1rem 0.7rem;}
+        .faq-answer { padding: 0.8rem 0.6rem 0.8rem 0.6rem;}
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Open/close FAQ
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.addEventListener('click', function() {
+            const item = this.closest('.faq-item');
+            item.classList.toggle('open');
+            const ans = item.querySelector('.faq-answer');
+            if(item.classList.contains('open')) {
+              ans.style.display = 'block';
+            } else {
+              ans.style.display = 'none';
+            }
+          });
+        });
+        // By default, open the first FAQ
+        const firstItem = document.querySelector('.faq-item');
+        if(firstItem) {
+          firstItem.classList.add('open');
+          firstItem.querySelector('.faq-answer').style.display = 'block';
+        }
+        // Category filter
+        document.querySelectorAll('.faq-cat-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.faq-cat-btn').forEach(b=>b.classList.remove('selected'));
+            btn.classList.add('selected');
+            const cat = btn.dataset.cat;
+            document.querySelectorAll('.faq-item').forEach(item => {
+              if(cat === 'all' || item.dataset.cat === cat) {
+                item.style.display = '';
+              } else {
+                item.style.display = 'none';
+                item.classList.remove('open');
+                item.querySelector('.faq-answer').style.display = 'none';
+              }
+            });
+          });
+        });
+      });
+    </script>
+</head>
+<body>
+    <header class="header1">
+        <nav>
+            <div class="logo">Felix Fiberworks</div>
+            <div class="header-right"></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Shop.html">Products</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+            </ul>
+            <a href="cart.html" class="nav-cart" aria-label="View cart">🛒 <span id="cart-count">0</span></a>
+            <a href="CustomOrder.html" class="nav-btn">Custom Order</a>
+        </nav>
+    </header>
+    <section class="faq-hero">
+      <div class="glow-badge">Need Help?</div>
+      <h1>Frequently Asked Questions</h1>
+      <p>
+        Everything you want to know about Felix Fiberworks—products, custom orders, shipping, care, and more!
+        If you don’t see your question here, <a href="mailto:FelixFiberworks@gmail.com" style="color:var(--faq-primary);font-weight:700;">email us</a> anytime.
+      </p>
+    </section>
+    <main>
+      <section class="faq-section">
+        <div class="faq-cats">
+          <button class="faq-cat-btn selected" data-cat="all"><span>🌐</span>All</button>
+          <button class="faq-cat-btn" data-cat="orders"><span>🛒</span>Ordering</button>
+          <button class="faq-cat-btn" data-cat="shipping"><span>🚚</span>Shipping</button>
+          <button class="faq-cat-btn" data-cat="yarn"><span>🧶</span>Yarn</button>
+          <button class="faq-cat-btn" data-cat="crochet"><span>🪡</span>Crochet</button>
+          <button class="faq-cat-btn" data-cat="flowers"><span>🌸</span>Flowers</button>
+          <button class="faq-cat-btn" data-cat="embroidery"><span>🧵</span>Embroidery</button>
+          <button class="faq-cat-btn" data-cat="custom"><span>✨</span>Custom Orders</button>
+          <button class="faq-cat-btn" data-cat="products"><span>🎁</span>Products</button>
+          <button class="faq-cat-btn" data-cat="care"><span>🧼</span>Care</button>
+          <button class="faq-cat-btn" data-cat="other"><span>❓</span>Other</button>
+        </div>
+        <ul class="faq-list">
+          <!-- FAQ 1 -->
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question">How do I place an order?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Simply browse our products, add your favorites to the cart, and follow the checkout process! For custom requests, use our Custom Order form.
+            </div>
+          </li>
+          <!-- FAQ 2 -->
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question">Can I modify or cancel my order after placing it?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              If your order hasn’t shipped yet, contact us as soon as possible at FelixFiberworks@gmail.com and we’ll do our best to help.
+            </div>
+          </li>
+          <!-- FAQ 3 -->
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question">What payment methods do you accept?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              We accept all major credit/debit cards, PayPal, and GCash. For other payment requests, contact us!
+            </div>
+          </li>
+          <!-- FAQ 4 -->
+          <li class="faq-item" data-cat="shipping">
+            <div class="faq-question">When will my order ship?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Orders are processed within 1-3 business days. Custom orders may require additional time; you’ll receive an estimate upon ordering.
+            </div>
+          </li>
+          <!-- FAQ 5 -->
+          <li class="faq-item" data-cat="shipping">
+            <div class="faq-question">How much is shipping?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Shipping fees are calculated at checkout based on your location and order size. Free shipping is offered for qualifying purchases.
+            </div>
+          </li>
+          <!-- FAQ 6 -->
+          <li class="faq-item" data-cat="shipping">
+            <div class="faq-question">Do you ship internationally?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Yes! We offer international shipping. Delivery times and fees may vary by country.
+            </div>
+          </li>
+          <!-- FAQ 7 -->
+          <li class="faq-item" data-cat="shipping">
+            <div class="faq-question">How can I track my order?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              You’ll receive a tracking number via email once your order has shipped.
+            </div>
+          </li>
+          <!-- FAQ 8 -->
+          <li class="faq-item" data-cat="products">
+            <div class="faq-question">Are all products handmade?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Yes! Every item is handcrafted with care by Felix in the Philippines, so each one is unique.
+            </div>
+          </li>
+          <!-- FAQ 9 -->
+          <li class="faq-item" data-cat="products">
+            <div class="faq-question">Do you restock sold out items?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              We do our best to restock popular items, but due to the handmade nature, some designs may be limited. Follow us on Instagram for restock updates!
+            </div>
+          </li>
+          <!-- FAQ 10 -->
+          <li class="faq-item" data-cat="products">
+            <div class="faq-question">Can I request a different color or size?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Absolutely! Most items can be customized—just leave a note at checkout or use our Custom Order form.
+            </div>
+          </li>
+          <!-- FAQ 11 -->
+          <li class="faq-item" data-cat="custom">
+            <div class="faq-question">How do custom orders work?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Fill out our Custom Order form with your ideas. We'll confirm details, pricing, and timeline with you before starting.
+            </div>
+          </li>
+          <!-- FAQ 12 -->
+          <li class="faq-item" data-cat="custom">
+            <div class="faq-question">How long do custom orders take?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Custom orders usually take 1-2 weeks depending on complexity and order volume. We'll keep you updated!
+            </div>
+          </li>
+          <!-- FAQ 13 -->
+          <li class="faq-item" data-cat="custom">
+            <div class="faq-question">Can I preview my custom design before it's made?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Yes—Felix provides sketches or digital mockups for approval before production.
+            </div>
+          </li>
+          <!-- FAQ 14 -->
+          <li class="faq-item" data-cat="products">
+            <div class="faq-question">What materials do you use?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              We use high-quality yarn, cotton, felt, and hypoallergenic stuffing. Each product page lists specific materials.
+            </div>
+          </li>
+          <!-- FAQ 15 -->
+          <li class="faq-item" data-cat="care">
+            <div class="faq-question">How do I care for my crochet or yarn items?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Gently hand wash in cool water with mild soap. Air dry flat. Avoid ironing or machine drying.
+            </div>
+          </li>
+          <!-- FAQ 16 -->
+          <li class="faq-item" data-cat="care">
+            <div class="faq-question">Are your products safe for children or pets?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Most items are safe, but please supervise children under 3 as small parts may pose a choking hazard.
+            </div>
+          </li>
+          <!-- FAQ 17 -->
+          <li class="faq-item" data-cat="products">
+            <div class="faq-question">Do you offer gift wrapping or notes?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Yes! Add a note at checkout and we can include a handwritten message and gift wrap your order.
+            </div>
+          </li>
+          <!-- FAQ 18 -->
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question">Can I buy yarn individually?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Yes, we offer select hand-dyed and specialty yarns for sale by the skein. See our Yarn section!
+            </div>
+          </li>
+          <!-- FAQ 19 -->
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question">What fiber content are your yarns?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Most yarns are cotton or acrylic blends, but we also offer bamboo and wool options. Details are on each product page.
+            </div>
+          </li>
+          <!-- FAQ 20 -->
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question">Can I request custom yarn colors or bases?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Absolutely! Contact us or use the Custom Order form to request specific colors or yarn types.
+            </div>
+          </li>
+          <!-- FAQ 21 -->
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question">Are your yarns suitable for baby projects?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Yes! Our baby-friendly yarns are super soft and safe for sensitive skin. Look for the "baby safe" tag.
+            </div>
+          </li>
+
+           <!-- Yarn FAQs -->
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> What fiber content are your yarns?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Most yarns are cotton or acrylic blends, but we also offer bamboo and wool options. Details are on each product page.</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> Are your yarns eco-friendly?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                We prioritize eco-friendly materials and processes. Check product details for sustainability badges!</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> Can I buy yarn individually?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes, we offer select hand-dyed and specialty yarns for sale by the skein. See our Yarn section!</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> Can I request custom yarn colors or bases?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Absolutely! Contact us or use the Custom Order form to request specific colors or yarn types.</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> Are your yarns suitable for baby projects?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! Our baby-friendly yarns are super soft and safe for sensitive skin. Look for the "baby safe" tag.</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> How should I care for your yarns?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Hand wash gently in cool water. Air dry flat. See each yarn’s label for specifics.</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> Do you sell yarn bundles or kits?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! We offer curated yarn bundles and project kits. Watch for seasonal releases.</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> Can I see color samples before ordering?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                We try to provide clear photos, but you can request small swatches for a nominal fee.</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> Is your yarn suitable for beginners?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Absolutely! Many customers find our yarns easy to work with for both knitting and crochet.</div>
+          </li>
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question"> Will the yarn colors bleed or fade?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Our yarns are colorfast and tested for durability. Follow care instructions for best results.</div>
+          </li>
+
+          <!-- Crochet FAQs -->
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> Are your crochet items handmade?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! Every crochet piece is handmade by Felix with love and care.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> Can I request a custom crochet design?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Definitely! Use our Custom Order form to share your idea and we’ll make it happen.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> What yarn do you use for crochet items?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                We use soft, durable yarns—mostly cotton, acrylic or blends—chosen for comfort and longevity.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> Are your crochet toys safe for children?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Most are! For children under 3, request embroidered features and avoid small removable parts.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> How do I care for my crochet piece?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Hand wash in cool water and air dry flat. Avoid wringing out or machine drying.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> Can I order matching sets (e.g. hats & scarves)?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Absolutely! We love making themed sets. Just specify your preferences in your order.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> Do you offer crochet classes or tutorials?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! Check our News page or follow on Instagram for upcoming workshops and free tips.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> Can you repair or restore old crochet items?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                In most cases, yes! Send photos and we’ll let you know what’s possible.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> Do you use patterns or design your own?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Felix creates original designs, but can work from patterns if you have a favorite style.</div>
+          </li>
+          <li class="faq-item" data-cat="crochet">
+            <div class="faq-question"> Can I order a plushie in a specific theme or character?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! We can make plushies based on many themes—just ask for availability.</div>
+          </li>
+
+          <!-- Flowers FAQs -->
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> What materials do you use for your flowers?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Our flowers are made from yarn, felt, and wire stems for durability and beauty.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> Will the flowers fade over time?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                No, our flowers keep their color for years! Avoid direct sunlight for best results.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> Can I order a custom bouquet?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! Choose your favorite colors and flower types, and we’ll craft a unique arrangement.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> Are your flowers safe for people with allergies?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Absolutely! Our flowers are hypoallergenic and pollen-free—perfect for everyone.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> Can I use your flowers in wedding bouquets or events?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! We love making event flowers. Contact us for custom arrangements and bulk pricing.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> How do I clean my fiber flowers?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Gently dust with a soft brush or cloth. Avoid water or harsh chemicals.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> Can you make flowers in a specific color palette?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Of course! Let us know your desired colors and we’ll match them as closely as possible.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> Are flowers sold as singles or in sets?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                We offer both! Check product listings or request a custom bundle.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> How long do your flowers last?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                They last for years—no watering needed! Just dust occasionally.</div>
+          </li>
+          <li class="faq-item" data-cat="flowers">
+            <div class="faq-question"> Can you make floral wreaths or garlands?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! We can create custom wreaths, garlands, and more for your space or event.</div>
+          </li>
+
+          <!-- Embroidery FAQs -->
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> Are your embroidery pieces hand-stitched?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes, every embroidery item is hand-stitched by Felix with high-quality threads.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> Can I request a custom embroidery design?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Absolutely! Send us your idea or inspiration photo and we’ll create a one-of-a-kind piece.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> What materials do you use for embroidery?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                We use cotton, linen, and premium embroidery threads for durability and beauty.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> How do I display embroidery art?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Display in a hoop, frame, or hang as a wall banner—each piece comes ready to showcase.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> Can I order a portrait or pet embroidery?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! Send a clear photo and we’ll create a stitched portrait or pet likeness.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> How should I care for my embroidery?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Keep out of direct sunlight, dust gently, and avoid moisture for best longevity.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> Can embroidery be washed?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Spot clean with a damp cloth if necessary. Avoid soaking or scrubbing the stitches.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> Can you stitch names or quotes?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! Personalized names, dates, and quotes are a popular request for gifts.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> Do you offer embroidery kits or patterns?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Coming soon! Watch our shop and Instagram for announcements.</div>
+          </li>
+          <li class="faq-item" data-cat="embroidery">
+            <div class="faq-question"> Can you repair damaged embroidery?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Send us a photo and we’ll let you know if repair is possible!</div>
+          </li>
+
+          <!-- Ordering FAQs -->
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> How do I place an order?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Browse our products, add your favorites to the cart, and check out. For custom requests, use our Custom Order form.</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> Can I modify or cancel my order?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                If your order hasn’t shipped yet, contact us ASAP at FelixFiberworks@gmail.com and we’ll help!</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> What payment methods do you accept?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                We accept all major credit/debit cards, PayPal, and GCash. For other payment requests, contact us!</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> How do I use a promo code?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Enter your promo code at checkout to receive your discount. Only one code may be used per order.</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> Can I order as a gift?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! Add a note at checkout and we’ll gift-wrap and include a handwritten message.</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> Do you offer bulk or wholesale pricing?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                We love collaborating on bulk orders for weddings, parties, or business gifts. Email us for a quote!</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> Can I order if I live outside of the Philippines?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Yes! We ship internationally—see our Shipping FAQs for details.</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> How do I check my order status?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                You’ll receive order and shipping updates by email. Contact us for any questions!</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> Can I pick up my order locally?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer"style="display:none;">
+                Local pickup is available in select areas. Contact us to arrange a meet-up.</div>
+          </li>
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question"> Will I receive a receipt?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+                Yes, every order comes with an email receipt for your records.</div>
+          </li>
+
+          <!-- FAQ 22 -->
+          <li class="faq-item" data-cat="custom">
+            <div class="faq-question">Can I order in bulk for events or businesses?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Yes, we love collaborating on bulk orders for weddings, parties, or corporate gifts. Email us for a quote!
+            </div>
+          </li>
+          <!-- FAQ 23 -->
+          <li class="faq-item" data-cat="other">
+            <div class="faq-question">Do you ever teach workshops or classes?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Yes! Follow us on Instagram or check our News page for upcoming workshops and events.
+            </div>
+          </li>
+          <!-- FAQ 24 -->
+          <li class="faq-item" data-cat="other">
+            <div class="faq-question">Do you accept commissions for collaborations?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Felix is open to creative collaborations—just send us an email with your idea!
+            </div>
+          </li>
+          <!-- FAQ 25 -->
+          <li class="faq-item" data-cat="shipping">
+            <div class="faq-question">What if my package is lost or damaged?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Please contact us immediately with your order details and photos if applicable. We’ll do our best to resolve the issue!
+            </div>
+          </li>
+          <!-- FAQ 26 -->
+          <li class="faq-item" data-cat="shipping">
+            <div class="faq-question">Can I pick up my order locally?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Local pickup is available in select areas. Contact us to see if we can arrange a meet-up.
+            </div>
+          </li>
+          <!-- FAQ 27 -->
+          <li class="faq-item" data-cat="orders">
+            <div class="faq-question">How do I use a promo code?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Enter your promo code at checkout to receive your discount. Only one code may be used per order.
+            </div>
+          </li>
+          <!-- FAQ 28 -->
+          <li class="faq-item" data-cat="yarn">
+            <div class="faq-question">Are your yarns eco-friendly?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              We prioritize eco-friendly materials and processes. Check product details for sustainability badges!
+            </div>
+          </li>
+          <!-- FAQ 29 -->
+          <li class="faq-item" data-cat="care">
+            <div class="faq-question">Can I machine wash my crochet or knit pieces?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Hand washing is safest, but some yarns are machine washable on gentle. Always check your product’s care tag!
+            </div>
+          </li>
+          <!-- FAQ 30 -->
+          <li class="faq-item" data-cat="products">
+            <div class="faq-question">How do I know what size to order?<span class="faq-toggle">+</span></div>
+            <div class="faq-answer" style="display:none;">
+              Measurements are listed on each product page. If you need help, just ask!
+            </div>
+          </li>
+        </ul>
+        <div style="text-align:center; margin-top:2.2em; color:#a69c90; font-size:1.05em;">
+          Still have questions? <a href="mailto:FelixFiberworks@gmail.com" style="color:var(--faq-primary);font-weight:700;">Contact us</a> and we'll be happy to help!
+        </div>
+      </section>
+    </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+      <!-- Back to Top Button: appears after scroll, accessible and mobile-friendly -->
+  <div class="back-to-top-wrapper">
+    <button id="backToTop" aria-label="Back to top">
+      <span class="back-to-top-arrow" aria-hidden="true">↑</span>
+    </button>
+    <span class="back-to-top-label">Back to Top</span>
+  </div>
+<script>
+    // Cart Add-to-Cart Button logic and update nav cart count
+    document.addEventListener('DOMContentLoaded', function(){
+      // Cart count update for nav
+      let cart = {};
+      try { cart = JSON.parse(localStorage.getItem('cart')) || {}; } catch(e) { cart = {}; }
+      let count = 0;
+      Object.values(cart).forEach(item => count += item.qty || 0);
+      let countDisplay = count > 999 ? "999+" : count;
+      document.querySelectorAll('#cart-count').forEach(e => e.textContent = countDisplay);
+
+      // Add to cart button logic
+      document.querySelectorAll('.add-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.getAttribute('data-id');
+          const name = this.getAttribute('data-name');
+          const price = parseFloat(this.getAttribute('data-price'));
+          const img = this.getAttribute('data-img');
+          let cart = {};
+          try {
+            cart = JSON.parse(localStorage.getItem('cart')) || {};
+          } catch(e) { cart = {}; }
+          if (!cart[id]) {
+            cart[id] = {
+              id,
+              name,
+              price,
+              img,
+              qty: 0
+            };
+          }
+          cart[id].qty += 1;
+          localStorage.setItem('cart', JSON.stringify(cart));
+          // Redirect to cart.html with product id as a parameter
+          window.location.href = `cart.html?id=${id}`;
+        });
+      });
+
+      // Back to Top Button Functionality
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+          if (window.scrollY > 250) {
+              btn.classList.add('visible');
+          } else {
+              btn.classList.remove('visible');
+          }
+      });
+      btn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+  <style>
+    /* --- Back to Top Button: fixed, with label below, responsive --- */
+    .back-to-top-wrapper {
+        position: fixed;
+        right: 18px;
+        bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 199;
+        pointer-events: none;
+    }
+    #backToTop {
+        width: 48px;
+        height: 48px;
+        background: var(--secondary, #bdb2ff);
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: bold;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(.4,0,.2,1), background 0.2s, color 0.2s, transform 0.3s cubic-bezier(.4,0,.2,1);
+        transform: translateY(30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+    .back-to-top-arrow {
+        color: #000;
+        font-size: 1.6em;
+        line-height: 1;
+    }
+    .back-to-top-label {
+        margin-top: 2px;
+        font-size: 0.93rem;
+        color: #000;
+        font-weight: 500;
+        background: rgba(255,255,255,0.88);
+        border-radius: 6px;
+        padding: 1px 8px;
+        user-select: none;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    #backToTop.visible + .back-to-top-label {
+        opacity: 1;
+    }
+    #backToTop:focus .back-to-top-label,
+    #backToTop:hover .back-to-top-label {
+        color: var(--primary, #e2c290);
+    }
+    #backToTop:focus, #backToTop:hover {
+        background: var(--primary, #e2c290);
+        color: #000;
+        outline: none;
+        box-shadow: 0 6px 16px #e2c29044;
+    }
+    @media (max-width: 600px) {
+        .back-to-top-wrapper {
+            right: 8px;
+            bottom: 18px;
+        }
+        #backToTop {
+            width: 36px;
+            height: 36px;
+            font-size: 1.2rem;
+        }
+        .back-to-top-label {
+            font-size: 0.8rem;
+            padding: 0 5px;
+        }
+    }
+  </style>
+</body>
+</html>

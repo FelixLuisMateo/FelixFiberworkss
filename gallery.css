@@ -1,0 +1,79 @@
+
+
+/* Add a modern, responsive grid layout with spacing for the gallery */
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  /* Each column is at least 240px, then auto-fills */
+  gap: 32px 30px; /* vertical and horizontal gap */
+  padding: 36px 26px 40px 26px; /* add horizontal padding for breathing room */
+  background: linear-gradient(135deg, #fff6e7 75%, #ffe06630 100%);
+  border-radius: 32px;
+  border: 6px double #ffe06680;
+  outline: 4px dashed #bdb2ff33;
+  outline-offset: -12px;
+  box-shadow: 0 12px 44px #e2c29023;
+}
+
+/* Adjust mosaic item for grid mode */
+.gallery-mosaic-item {
+  margin: 0; /* remove margins, use grid gap */
+  min-width: 0; /* allows items to shrink properly in grid */
+  min-height: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Enhance wide and tall variation for grid */
+.gallery-mosaic-item.wide {
+  grid-column: span 2;
+}
+.gallery-mosaic-item.tall {
+  grid-row: span 2;
+}
+
+/* Make sure wide/tall classes don't overflow mobile */
+@media (max-width: 900px) {
+  .gallery-mosaic-item.wide, .gallery-mosaic-item.tall {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
+/* Space out the photo frames more for a floating effect */
+.gallery-photo-frame {
+  margin: 0;
+  box-shadow: 0 4px 24px #e2c29015, 0 0.5px 2px #bdb2ff18;
+  background: #fffdfa;
+  border-radius: 22px;
+  padding: 19px 14px 32px 14px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* On hover, slightly lift the image */
+.gallery-mosaic-item:hover .gallery-photo-frame {
+  box-shadow: 0 20px 60px #bdb2ff22, 0 13px 38px #ffe06621;
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Make sure mosaic doesn't overflow on mobile */
+@media (max-width: 700px) {
+  .gallery-mosaic {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 18px 10px;
+    padding: 16px 2vw 30px 2vw;
+  }
+  .gallery-photo-frame {
+    padding: 7px 2px 14px 2px;
+  }
+}
+
+/* Add a little extra space below the Instagram button */
+.insta-follow-center {
+  margin-top: 28px;
+}
+
+/* Optional: Slightly stagger images for a dynamic feel */
+.gallery-mosaic-item:nth-child(2n) { transform: translateY(9px) rotate(1.2deg); }
+.gallery-mosaic-item:nth-child(3n) { transform: translateY(-8px) rotate(-2.1deg); }
+.gallery-mosaic-item:nth-child(4n) { transform: translateY(4px) rotate(2.3deg); }

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Contact Felix Fiberworks. Send us a message, find our email, social media, and get in touch for custom orders or questions.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Felix Fiberworks</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="backtotop.css">
+  <script src="cart.js" defer></script>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --contact-primary: #bdb2ff;
+      --contact-secondary: #ffe066;
+      --contact-bg: #f6f4ff;
+      --contact-card: #fffdfa;
+      --contact-title: #6f42c1;
+      --contact-text: #50412a;
+    }
+    body { background: var(--contact-bg); }
+    .contact-hero {
+      background: linear-gradient(120deg, #ffe0661a 0%, #bdb2ff13 100%);
+      text-align: center;
+      padding: 3.2rem 1rem 1.6rem 1rem;
+      border-radius: 0 0 32px 32px;
+      margin-bottom: -1.2rem;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      margin-top: -50px;
+    }
+    .contact-hero h1 {
+      font-family: var(--font-head, 'Playfair Display', serif);
+      color: var(--contact-title);
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 0.6rem;
+      letter-spacing: 1px;
+    }
+    .contact-hero p {
+      color: #a69c90;
+      font-size: 1.1rem;
+      max-width: 540px;
+      margin: 0 auto 1.2rem auto;
+    }
+    .contact-main {
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      background: var(--contact-bg);
+      border-radius: 22px;
+      box-shadow: 0 5px 24px #bdb2ff13;
+      padding: 2.5rem 1.4rem 2.2rem 1.4rem;
+      justify-content: center;
+    }
+    .contact-form-section, .contact-info-section {
+      background: var(--contact-card);
+      border-radius: 17px;
+      box-shadow: 0 1px 8px #bdb2ff13;
+      padding: 2rem 1.3rem 1.5rem 1.3rem;
+      text-align: center;
+      flex: 1 1 320px;
+      min-width: 280px;
+      max-width: 410px;
+      margin: 0.2em 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact-form-section h2, .contact-info-section h2 {
+      font-family: var(--font-head, 'Playfair Display', serif);
+      color: var(--contact-title);
+      font-size: 1.28rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.7em;
+    }
+    .contact-form {
+      width: 100%;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin: 0 auto;
+    }
+    .cf-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+    .cf-label {
+      font-size: 1em;
+      font-weight: 600;
+      margin-bottom: 0.25em;
+      color: var(--contact-title);
+      letter-spacing: 0.2px;
+    }
+    .cf-input, .cf-textarea, .cf-select {
+      width: 100%;
+      padding: 0.7em 1em;
+      border-radius: 12px;
+      border: 1.5px solid #bdb2ff44;
+      font-size: 1em;
+      font-family: inherit;
+      margin-bottom: 0.1em;
+      background: #faf8ff;
+      transition: border .18s;
+      resize: none;
+    }
+    .cf-input:focus, .cf-textarea:focus, .cf-select:focus {
+      border-color: var(--contact-primary);
+      outline: none;
+      background: #fffef9;
+    }
+    .cf-textarea { min-height: 80px; max-height: 260px;}
+    .cf-btn {
+      background: var(--contact-primary);
+      color: #fff;
+      border: none;
+      font-weight: 700;
+      font-size: 1.09em;
+      border-radius: 14px;
+      padding: 0.7em 0;
+      cursor: pointer;
+      transition: background 0.16s;
+      margin-top: 0.3em;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px #bdb2ff13;
+    }
+    .cf-btn:hover { background: var(--contact-secondary); color: var(--contact-title);}
+    .cf-required {
+      color: #e74c3c;
+      margin-left: 0.2em;
+    }
+    .cf-success, .cf-error {
+      margin-top: 0.5em;
+      font-size: 1em;
+      font-weight: 600;
+      border-radius: 7px;
+      padding: 0.35em 0.9em;
+      display: inline-block;
+    }
+    .cf-success { background: #b8f3b4; color: #1a7022;}
+    .cf-error { background: #ffb4b4; color: #7f1d1d;}
+    .contact-socials {
+      margin: 0.6em 0 1.4em 0;
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-social-link {
+      display: flex; align-items: center;
+      gap: 0.4em;
+      font-size: 1.09em;
+      color: var(--contact-title);
+      background: #f6f4ff;
+      border-radius: 14px;
+      padding: 0.4em 1em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.17s, color 0.17s;
+      box-shadow: 0 1px 4px #bdb2ff09;
+    }
+    .contact-social-link:hover {
+      background: var(--contact-primary);
+      color: #fff;
+    }
+    .contact-info-list {
+      margin: 0.8em 0 0.4em 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+      font-size: 1.04em;
+      color: var(--contact-text);
+      width: 100%;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-info-list li {
+      margin-bottom: 0.7em;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4em;
+    }
+    .contact-info-icon {
+      font-size: 1.2em;
+      color: var(--contact-primary);
+      margin-right: 0.5em;
+      min-width: 1.4em;
+    }
+    .contact-map {
+      width: 100%;
+      border: 0;
+      border-radius: 13px;
+      margin-top: 1em;
+      min-height: 180px;
+      max-height: 240px;
+      box-shadow: 0 2px 8px #bdb2ff13;
+      background: #eee;
+    }
+    .contact-cta-section {
+      max-width: 680px;
+      margin: 0 auto 2.5em auto;
+      text-align: center;
+    }
+    .contact-cta-section h2 {
+      font-family: var(--font-head);
+      color: var(--contact-title);
+      font-size: 1.12rem;
+      font-weight: 900;
+      margin-bottom: 0.7rem;
+    }
+    .contact-cta-section p {
+      color: #a69c90;
+      font-size: 1.06em;
+      margin-bottom: 1.1em;
+    }
+    .contact-cta-section .cf-btn {
+      font-size: 1.08em;
+      padding: 0.7em 2.3em;
+    }
+    @media (max-width: 900px) {
+      .contact-main { flex-direction: column; gap: 1.3rem; padding: 1.6rem 0.6rem 1.6rem 0.6rem;}
+      .contact-form-section, .contact-info-section {max-width: 98vw;}
+    }
+    @media (max-width: 600px) {
+      .contact-hero h1 { font-size: 1.3rem; }
+      .contact-hero p { font-size: 0.97rem; }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("contact-form");
+      const successMsg = document.getElementById("cf-success");
+      const errorMsg = document.getElementById("cf-error");
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        // Fake validation for demo
+        successMsg.style.display = "none";
+        errorMsg.style.display = "none";
+        let valid = true;
+        Array.from(form.querySelectorAll("[required]")).forEach(input => {
+          if (!input.value.trim()) valid = false;
+        });
+        if (!valid) {
+          errorMsg.textContent = "Please fill in all required fields.";
+          errorMsg.style.display = "block";
+          return;
+        }
+        // Simulate successful submission
+        successMsg.textContent = "Thank you for reaching out! We'll get back to you soon.";
+        successMsg.style.display = "block";
+        form.reset();
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="header1">
+    <nav>
+      <div class="logo">Felix Fiberworks</div>
+      <div class="header-right"></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Shop.html">Products</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+      <a href="cart.html" class="nav-cart" aria-label="View cart">🛒 <span id="cart-count">0</span></a>
+      <a href="CustomOrder.html" class="nav-btn">Custom Order</a>
+    </nav>
+  </header>
+  <section class="contact-hero">
+    <h1>Contact Us</h1>
+    <p>
+      Questions? Special requests? Collaborations? We’re here to help! Please use the form below or reach out via social media or email. Let’s make something beautiful together.
+    </p>
+  </section>
+  <main>
+    <div class="contact-main">
+      <!-- Contact Form -->
+      <div class="contact-form-section">
+        <h2>Send Us a Message</h2>
+        <form class="contact-form" id="contact-form" autocomplete="off">
+          <div class="cf-group">
+            <label class="cf-label" for="cf-name">Name <span class="cf-required">*</span></label>
+            <input class="cf-input" id="cf-name" name="name" type="text" required placeholder="Your Name">
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-email">Email <span class="cf-required">*</span></label>
+            <input class="cf-input" id="cf-email" name="email" type="email" required placeholder="you@email.com">
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-subject">Subject <span class="cf-required">*</span></label>
+            <input class="cf-input" id="cf-subject" name="subject" type="text" required placeholder="How can we help?">
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-type">Type of Inquiry</label>
+            <select class="cf-select" id="cf-type" name="type">
+              <option value="General">General Inquiry</option>
+              <option value="CustomOrder">Custom Order</option>
+              <option value="Collab">Collaboration</option>
+              <option value="Support">Support</option>
+              <option value="Feedback">Feedback</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-message">Message <span class="cf-required">*</span></label>
+            <textarea class="cf-textarea" id="cf-message" name="message" required placeholder="Type your message here..."></textarea>
+          </div>
+          <button class="cf-btn" type="submit">Send Message</button>
+          <span id="cf-success" class="cf-success" style="display:none;"></span>
+          <span id="cf-error" class="cf-error" style="display:none;"></span>
+        </form>
+        <p style="margin-top:1em;color:#a69c90;font-size:0.98em;">We typically reply within 24–48 hours.</p>
+      </div>
+      <!-- Contact Info & Socials -->
+      <div class="contact-info-section">
+        <h2>Contact Details</h2>
+        <ul class="contact-info-list">
+          <li><span class="contact-info-icon">📧</span>
+            <span><a href="mailto:FelixFiberworks@gmail.com" style="color:var(--contact-title);font-weight:600;">FelixFiberworks@gmail.com</a></span>
+          </li>
+          <li><span class="contact-info-icon">📱</span>
+            <span>+63 917 123 4567</span>
+          </li>
+          <li><span class="contact-info-icon">📍</span>
+            <span>Manila, Philippines</span>
+          </li>
+          <li><span class="contact-info-icon">⏰</span>
+            <span>Mon–Fri: 9am–6pm<br>Sat: 10am–3pm</span>
+          </li>
+        </ul>
+        <div class="contact-socials">
+          <a class="contact-social-link" href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener"><span>📸</span>Instagram</a>
+          <a class="contact-social-link" href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener"><span>📘</span>Facebook</a>
+          <a class="contact-social-link" href="https://www.tiktok.com/@FelixFiberworks" target="_blank" rel="noopener"><span>🎵</span>TikTok</a>
+        </div>
+        <!-- Optional: Embedded Google Map (replace src with your shop/studio location if desired) -->
+        <iframe class="contact-map" title="Felix Fiberworks Studio Location" src="https://www.openstreetmap.org/export/embed.html?bbox=120.9782%2C14.6042%2C120.9822%2C14.6082&amp;layer=mapnik" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p style="color:#a69c90;margin-top:0.7em;font-size:0.96em;">Visit us by appointment only. Please contact us to schedule.</p>
+      </div>
+    </div>
+    <section class="contact-cta-section">
+      <h2>Interested in Custom Orders or Collaborations?</h2>
+      <p>
+        We love working with fellow makers, brands, and event organizers! If you have a creative project in mind, feel free to <a href="CustomOrder.html" style="color:var(--contact-primary);font-weight:700;">submit a custom order</a> or mention your idea in your message.
+      </p>
+      <a href="CustomOrder.html" class="cf-btn">Custom Order Form</a>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+          <a href="https://www.tiktok.com/@FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="TikTok">🎵 TikTok</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

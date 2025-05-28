@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Responsive and SEO Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore detailed views and affordable prices on individual yarn products at Felix Fiberworks.">
+  <title id="product-title-tab">Yarn Products | Felix Fiberworks</title>
+  <link rel="stylesheet" href="categories.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+  <script src="cart.js" defer></script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav aria-label="Main navigation">
+    <div class="logo">Felix Fiberworks</div>
+    <div class="header-right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Categories.html">Categories</a></li>
+        <li><a href="Shop.html">Products</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <a href="cart.html" class="nav-cart" aria-label="View cart">🛒 <span id="cart-count">0</span></a>
+    <a href="CustomOrder.html" class="nav-btn">Custom Orders</a>
+  </nav>
+  <!-- Product Detail Page Layout -->
+  <div class="product-page-container">
+    <div class="product-detail-layout">
+      <div class="product-images">
+        <img id="product-image" src="" alt="Product Image">
+      </div>
+      <div class="product-info">
+        <h1 id="product-title">Product Name</h1>
+        <div class="product-price" id="product-price"></div>
+        <div class="desc" id="product-desc"></div>
+        <form>
+          <label for="size">Size:</label>
+          <select id="size" name="size"></select>
+          <br>
+          <label for="color">Color:</label>
+          <select id="color" name="color"></select>
+          <br>
+          <label for="qty">Quantity:</label>
+          <input type="number" id="qty" value="1" min="1" max="10">
+        </form>
+        <div class="product-actions">
+          <button type="button" class="add-btn" id="add-to-cart-btn">Add to Cart</button>
+          <a href="yarn.html" class="back-btn">← Back to Yarn</a>
+        </div>
+        <div class="product-meta" id="product-meta"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo">Felix Fiberworks</div>
+        <p>Handcrafted with yarn, thread, and heart—bringing whimsy to your world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="FAQs.html">FAQs</a></li>
+          <li><a href="MissionandVision.html">Mission & Vision</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/FelixFiberworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://www.facebook.com/FelixFiberworks" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘 Facebook</a>
+        </div>
+        <h4>Contact</h4>
+        <p>
+          <li><a href="ContactUs.html">Contact Us</a></li>
+          <a href="mailto:FelixFiberworks@gmail.com">FelixFiberworks@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>&copy; 2025 Felix Fiberworks. Crafted with love. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Back to Top Button: floating, mobile-friendly, accessible -->
+  <div class="back-to-top-wrapper">
+    <button id="backToTop" aria-label="Back to top">
+      <span class="back-to-top-arrow" aria-hidden="true">↑</span>
+    </button>
+    <span class="back-to-top-label">Back to Top</span>
+  </div>
+  <script>
+    // --- AFFORDABLE YARN PRODUCTS DATA ---
+    const YARN_PRODUCTS = {
+      1: {
+        name: "Soft Cotton Yarn (50g)",
+        price: 1.99,
+        desc: "Easy to work with and gentle on the skin. Great for baby items and summer projects.",
+        image: "Images/yarn-cotton.jpg",
+        sizes: ["50g"],
+        colors: ["White", "Pink", "Blue", "Yellow", "Green"],
+        meta: "Category: Cotton Yarn<br>Tags: soft, cotton, baby"
+      },
+      2: {
+        name: "Acrylic Worsted Yarn (100g)",
+        price: 2.25,
+        desc: "Durable and versatile for all your knitting or crochet projects.",
+        image: "Images/yarn-acrylic.jpg",
+        sizes: ["100g"],
+        colors: ["Red", "Navy", "Gray", "Black"],
+        meta: "Category: Acrylic Yarn<br>Tags: worsted, durable"
+      },
+      3: {
+        name: "Bamboo Blend Yarn (50g)",
+        price: 2.99,
+        desc: "Eco-friendly yarn with a silky feel and subtle shine.",
+        image: "Images/yarn-bamboo.jpg",
+        sizes: ["50g"],
+        colors: ["Beige", "Mint", "Lavender"],
+        meta: "Category: Bamboo Yarn<br>Tags: eco-friendly, silky"
+      },
+      4: {
+        name: "Chunky Wool Yarn (100g)",
+        price: 3.75,
+        desc: "Perfect for warm scarves, hats, and blankets with a quick finish.",
+        image: "Images/yarn-chunky.jpg",
+        sizes: ["100g"],
+        colors: ["Cream", "Taupe", "Mustard"],
+        meta: "Category: Wool Yarn<br>Tags: chunky, warm"
+      },
+      5: {
+        name: "Gradient Color Yarn (100g)",
+        price: 3.99,
+        desc: "Beautiful color transitions, ideal for shawls and statement pieces.",
+        image: "Images/yarn-gradient.jpg",
+        sizes: ["100g"],
+        colors: ["Sunset", "Ocean", "Forest"],
+        meta: "Category: Gradient Yarn<br>Tags: color, ombre"
+      },
+      6: {
+        name: "Merino Wool Yarn (50g)",
+        price: 2.99,
+        desc: "Luxurious, soft, and warm—great for hats, socks, and baby wear.",
+        image: "Images/yarn-merino.jpg",
+        sizes: ["50g"],
+        colors: ["Ivory", "Rose", "Sky"],
+        meta: "Category: Merino Yarn<br>Tags: soft, merino"
+      },
+      7: {
+        name: "Mohair Blend Yarn (25g)",
+        price: 2.50,
+        desc: "Feathery light and fluffy, perfect for delicate shawls and layering.",
+        image: "Images/yarn-mohair.jpg",
+        sizes: ["25g"],
+        colors: ["Lilac", "Ice Blue", "White"],
+        meta: "Category: Mohair Yarn<br>Tags: fluffy, light"
+      },
+      8: {
+        name: "Sparkle Acrylic Yarn (50g)",
+        price: 1.79,
+        desc: "Add a touch of shimmer to your crafts with this easy-care yarn.",
+        image: "Images/yarn-sparkle.jpg",
+        sizes: ["50g"],
+        colors: ["Silver", "Gold", "Pink"],
+        meta: "Category: Acrylic Yarn<br>Tags: sparkle, shimmer"
+      },
+      9: {
+        name: "XL Cotton Yarn (200g)",
+        price: 5.50,
+        desc: "Extra large skein for big projects like throws and chunky accessories.",
+        image: "Images/yarn-cotton-xl.jpg",
+        sizes: ["200g"],
+        colors: ["Natural", "Peach", "Blue"],
+        meta: "Category: Cotton Yarn<br>Tags: XL, big projects"
+      },
+      10: {
+        name: "Variegated Yarn (100g)",
+        price: 2.99,
+        desc: "Multi-color yarn adds playful stripes to any project.",
+        image: "Images/yarn-variegated.jpg",
+        sizes: ["100g"],
+        colors: ["Rainbow", "Berry", "Earth"],
+        meta: "Category: Variegated Yarn<br>Tags: multicolor, stripes"
+      },
+      11: {
+        name: "Linen Blend Yarn (50g)",
+        price: 2.50,
+        desc: "Breathable and sturdy, ideal for summer garments and accessories.",
+        image: "Images/yarn-linen.jpg",
+        sizes: ["50g"],
+        colors: ["Sand", "Aqua", "Ivory"],
+        meta: "Category: Linen Yarn<br>Tags: breathable, sturdy"
+      },
+      12: {
+        name: "Organic Cotton Yarn (50g)",
+        price: 2.99,
+        desc: "Pure organic cotton, gentle for sensitive skin and eco-conscious projects.",
+        image: "Images/yarn-organic.jpg",
+        sizes: ["50g"],
+        colors: ["White", "Light Blue", "Peach"],
+        meta: "Category: Cotton Yarn<br>Tags: organic, gentle"
+      },
+      13: {
+        name: "Neon Acrylic Yarn (100g)",
+        price: 2.25,
+        desc: "Bright, bold colors to make your creations pop!",
+        image: "Images/yarn-neon.jpg",
+        sizes: ["100g"],
+        colors: ["Neon Pink", "Neon Green", "Neon Yellow"],
+        meta: "Category: Acrylic Yarn<br>Tags: neon, bright"
+      },
+      14: {
+        name: "Bulky Wool Blend Yarn (100g)",
+        price: 2.99,
+        desc: "Quick to knit and wonderfully warm for winter accessories.",
+        image: "Images/yarn-bulky.jpg",
+        sizes: ["100g"],
+        colors: ["Olive", "Rust", "Cream"],
+        meta: "Category: Wool Yarn<br>Tags: bulky, warm"
+      },
+      15: {
+        name: "Pastel Color Yarn Pack (5x20g)",
+        price: 4.99,
+        desc: "Set of 5 soft pastel colors, perfect for amigurumi or baby gifts.",
+        image: "Images/yarn-pastel.jpg",
+        sizes: ["5x20g"],
+        colors: ["Pastel Collection"],
+        meta: "Category: Yarn Packs<br>Tags: pastel, set"
+      },
+      16: {
+        name: "Milk Fiber Yarn (50g)",
+        price: 3.50,
+        desc: "Soft and silky, made from milk protein fiber for unique texture.",
+        image: "Images/yarn-milkfiber.jpg",
+        sizes: ["50g"],
+        colors: ["White", "Soft Pink"],
+        meta: "Category: Specialty Yarn<br>Tags: milk, silky"
+      },
+      17: {
+        name: "Self-Striping Sock Yarn (50g)",
+        price: 2.99,
+        desc: "Creates effortless stripes, ideal for socks and mittens.",
+        image: "Images/yarn-sock.jpg",
+        sizes: ["50g"],
+        colors: ["Stripe Mix 1", "Stripe Mix 2"],
+        meta: "Category: Sock Yarn<br>Tags: self-striping, socks"
+      },
+      18: {
+        name: "Super Bulky Yarn (150g)",
+        price: 5.25,
+        desc: "Make chunky blankets or scarves in no time with this thick yarn.",
+        image: "Images/yarn-superbulky.jpg",
+        sizes: ["150g"],
+        colors: ["Teal", "Gray", "Wine"],
+        meta: "Category: Bulky Yarn<br>Tags: super bulky, thick"
+      },
+      19: {
+        name: "Hand-dyed Yarn (100g)",
+        price: 5.99,
+        desc: "Each skein is unique, dyed by hand in stunning colorways.",
+        image: "Images/yarn-handdyed.jpg",
+        sizes: ["100g"],
+        colors: ["Mystic Blue", "Sunburst", "Forest"],
+        meta: "Category: Hand-dyed Yarn<br>Tags: unique, artisan"
+      },
+      20: {
+        name: "Multicolor Yarn Set (10x10g)",
+        price: 3.99,
+        desc: "Ten mini skeins in assorted colors for creative projects and accents.",
+        image: "Images/yarn-multicolor.jpg",
+        sizes: ["10x10g"],
+        colors: ["Assorted Colors"],
+        meta: "Category: Yarn Packs<br>Tags: multicolor, minis"
+      }
+    };
+
+    // Get product ID from URL
+    function getProductId() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
+    }
+
+    // Render product details
+    function renderProduct() {
+      const id = getProductId();
+      const product = YARN_PRODUCTS[id];
+      if (!product) {
+        document.getElementById('product-title').textContent = "Product Not Found";
+        document.getElementById('product-title-tab').textContent = "Product Not Found | Felix Fiberworks";
+        document.getElementById('product-image').src = "https://via.placeholder.com/300x300?text=Product+Not+Found";
+        document.getElementById('product-image').alt = "Product Not Found";
+        document.getElementById('product-price').textContent = "";
+        document.getElementById('product-desc').textContent = "Sorry, this product does not exist or has not been selected. Please return to the shop and try again.";
+        document.getElementById('product-meta').innerHTML = "";
+        document.getElementById('size').innerHTML = "";
+        document.getElementById('color').innerHTML = "";
+        document.getElementById('add-to-cart-btn').disabled = true;
+        document.getElementById('add-to-cart-btn').textContent = "Unavailable";
+        return;
+      }
+      document.getElementById('product-title').textContent = product.name;
+      document.getElementById('product-title-tab').textContent = product.name + " | Felix Fiberworks";
+      document.getElementById('product-image').src = product.image;
+      document.getElementById('product-image').alt = product.name;
+      document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById('product-desc').textContent = product.desc;
+      document.getElementById('product-meta').innerHTML = product.meta;
+
+      // Populate size and color
+      const sizeSel = document.getElementById('size');
+      sizeSel.innerHTML = "";
+      (product.sizes || []).forEach(sz => {
+        const opt = document.createElement('option');
+        opt.textContent = sz;
+        sizeSel.appendChild(opt);
+      });
+
+      const colorSel = document.getElementById('color');
+      colorSel.innerHTML = "";
+      (product.colors || []).forEach(c => {
+        const opt = document.createElement('option');
+        opt.textContent = c;
+        colorSel.appendChild(opt);
+      });
+
+      // Enable Add to Cart button
+      document.getElementById('add-to-cart-btn').disabled = false;
+      document.getElementById('add-to-cart-btn').textContent = "Add to Cart";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderProduct();
+
+      document.getElementById('add-to-cart-btn').onclick = function() {
+        const id = getProductId();
+        if (!YARN_PRODUCTS[id]) return; // do nothing if not found
+        const qty = parseInt(document.getElementById('qty').value) || 1;
+        let cart = {};
+        try {
+          cart = JSON.parse(localStorage.getItem('cart')) || {};
+        } catch(e) { cart = {}; }
+        if (!cart[id]) {
+          cart[id] = {
+            id,
+            name: YARN_PRODUCTS[id].name,
+            price: YARN_PRODUCTS[id].price,
+            img: YARN_PRODUCTS[id].image,
+            qty: 0
+          };
+        }
+        cart[id].qty += qty;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Added to cart!');
+      };
+
+      // Back to Top Button Functionality
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 250) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+      });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+  <style>
+    /* --- Back to Top Button: fixed, with label below, responsive --- */
+    .back-to-top-wrapper {
+        position: fixed;
+        right: 18px;
+        bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 199;
+        pointer-events: none;
+    }
+    #backToTop {
+        width: 48px;
+        height: 48px;
+        background: var(--secondary, #bdb2ff);
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: bold;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(.4,0,.2,1), background 0.2s, color 0.2s, transform 0.3s cubic-bezier(.4,0,.2,1);
+        transform: translateY(30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+    .back-to-top-arrow {
+        color: #000;
+        font-size: 1.6em;
+        line-height: 1;
+    }
+    .back-to-top-label {
+        margin-top: 2px;
+        font-size: 0.93rem;
+        color: #000;
+        font-weight: 500;
+        background: rgba(255,255,255,0.88);
+        border-radius: 6px;
+        padding: 1px 8px;
+        user-select: none;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    #backToTop.visible + .back-to-top-label {
+        opacity: 1;
+    }
+    #backToTop:focus .back-to-top-label,
+    #backToTop:hover .back-to-top-label {
+        color: var(--primary, #e2c290);
+    }
+    #backToTop:focus, #backToTop:hover {
+        background: var(--primary, #e2c290);
+        color: #000;
+        outline: none;
+        box-shadow: 0 6px 16px #e2c29044;
+    }
+    @media (max-width: 600px) {
+        .back-to-top-wrapper {
+            right: 8px;
+            bottom: 18px;
+        }
+        #backToTop {
+            width: 36px;
+            height: 36px;
+            font-size: 1.2rem;
+        }
+        .back-to-top-label {
+            font-size: 0.8rem;
+            padding: 0 5px;
+        }
+    }
+  </style>
+</body>
+</html>
